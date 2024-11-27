@@ -1,5 +1,6 @@
 package com.example.muhanparking;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -59,7 +60,9 @@ public class Regular_Parking_Activity extends AppCompatActivity {
         appInquery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Regular_Parking_Activity.this, "신청 및 조회하기", Toast.LENGTH_SHORT).show();
+                // 가천대 포털 사이트 이동
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://sso.gachon.ac.kr/svc/tk/Auth.do?ac=Y&ifa=N&id=portal&"));
+                startActivity(intent);
             }
         });
     }

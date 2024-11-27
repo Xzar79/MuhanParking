@@ -92,7 +92,9 @@ public class Menu_Activity extends AppCompatActivity {
         mypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Menu_Activity.this, "마이페이지", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Menu_Activity.this, Mypage_Activity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

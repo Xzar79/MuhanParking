@@ -26,7 +26,12 @@ public class MainActivity2 extends AppCompatActivity {
             return insets;
         });
 
+        ImageView myInfo = findViewById(R.id.btn_myinfo);
+        ImageView parking = findViewById(R.id.btn_parking);
+        ImageView regular = findViewById(R.id.btn_regular_parking);
         ImageView menuIcon = findViewById(R.id.menu_icon);
+        ImageView settingsIcon = findViewById(R.id.settings_icon);
+
         menuIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,12 +42,30 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        ImageView settingsIcon = findViewById(R.id.settings_icon);
+
         settingsIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 설정 버튼 클릭 시 실행될 동작
                 Toast.makeText(MainActivity2.this, "설정 버튼 클릭됨!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        regular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, Regular_Parking_Activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        myInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, Mypage_Activity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
