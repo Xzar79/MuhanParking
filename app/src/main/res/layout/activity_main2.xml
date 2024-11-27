@@ -1,253 +1,347 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/custom_navigation_bar">
+
+        <!-- 상단 메뉴 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@drawable/rounded_background">
+
+            <!-- 햄버거 메뉴 -->
+            <ImageView
+                android:id="@+id/menu_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_menu"
+                android:layout_alignParentStart="true" />
+
+            <!-- 설정 버튼 -->
+            <ImageView
+                android:id="@+id/settings_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_settings"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
+        <!-- 내 정보 섹션 -->
+        <TextView
+            android:id="@+id/text_my_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내 정보"
+            android:fontFamily="@font/kotra_hope"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@id/card_view"
+            app:layout_constraintStart_toStartOf="@id/card_view"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
+            android:id="@+id/card_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:orientation="vertical"
-            android:background="#FFFFFF">
-
-            <!-- 상단 메뉴 -->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:background="@drawable/rounded_background">
-
-                <!-- 햄버거 메뉴 -->
-                <ImageView
-                    android:id="@+id/menu_icon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_menu"
-                    android:layout_alignParentStart="true" />
-
-                <!-- 설정 버튼 -->
-                <ImageView
-                    android:id="@+id/settings_icon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_settings"
-                    android:layout_alignParentEnd="true" />
-            </RelativeLayout>
-
-            <!-- 내 정보 섹션 -->
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:background="@drawable/gradient_border"
+            android:gravity="center"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_my_info" >
 
             <TextView
-                android:id="@+id/text_my_info"
+                android:id="@+id/text_car_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="내 정보"
-                android:fontFamily="@font/kotra_hope"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="18dp"
-                app:layout_constraintBottom_toTopOf="@id/card_view"
-                app:layout_constraintStart_toStartOf="@id/card_view"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <LinearLayout
-                android:id="@+id/card_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_weight="1"
-                android:padding="16dp"
-                android:background="@drawable/gradient_border"
-                android:gravity="center"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_my_info" >
-
-                <TextView
-                    android:id="@+id/text_car_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="차량 번호"
-                    android:fontFamily="@font/kotra_hope"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:layout_marginTop="8dp" />
-
-                <TextView
-                    android:id="@+id/car_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="123가 4567"
-                    android:fontFamily="@font/kotra_hope"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:layout_marginTop="4dp" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="8dp"
-                    android:background="#CCCCCC" />
-
-                <TextView
-                    android:id="@+id/text_fee"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="12,345,678 원"
-                    android:fontFamily="@font/kotra_hope"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:layout_marginTop="0dp" />
-            </LinearLayout>
-
-            <!-- AI관 섹션 -->
+                android:text="차량 번호"
+                android:textSize="20sp"
+                android:fontFamily="@font/kotra_hope"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp" />
 
             <TextView
-                android:id="@+id/text_section"
+                android:id="@+id/car_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="AI관"
+                android:layout_weight="1"
+                android:text="123가 4567"
                 android:fontFamily="@font/kotra_hope"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 android:textStyle="bold"
                 android:textColor="#000000"
-                app:layout_constraintBottom_toTopOf="@id/section_card_view"
-                app:layout_constraintStart_toStartOf="@id/section_card_view"
-                app:layout_constraintTop_toBottomOf="@id/card_view"
-                android:layout_marginLeft="18dp"
-                android:layout_marginBottom="18dp"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="4dp" />
 
-            <LinearLayout
-                android:id="@+id/section_card_view"
-                android:layout_width="match_parent"
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginVertical="8dp"
+                android:background="#CCCCCC" />
+
+            <TextView
+                android:id="@+id/text_fee"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="15dp"
-                android:background="@drawable/gradient_border"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
-                android:layout_marginBottom="100dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_weight="1"
-                    android:layout_marginTop="8dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="현재 주차 공간 수"
-                        android:fontFamily="@font/kotra_hope"
-                        android:textStyle="bold"
-                        android:textColor="#000000"
-                        android:textSize="20sp" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="자세히 보기"
-                        android:fontFamily="@font/kotra_hope"
-                        android:backgroundTint="#88BDF5"
-                        android:textColor="#F9F9F9" />
-                </LinearLayout>
-
-                <!-- 주차 공간 정보 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="일반 주차공간"
-                        android:fontFamily="@font/kotra_hope"
-                        android:gravity="center"
-                        android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="0 / 365"
-                        android:fontFamily="@font/kotra_hope"
-                        android:gravity="center"
-                        android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="장애인 주차공간"
-                        android:fontFamily="@font/kotra_hope"
-                        android:gravity="center"
-                        android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="0 / 25"
-                        android:fontFamily="@font/kotra_hope"
-                        android:gravity="center"
-                        android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
+                android:text="12,345,678 원"
+                android:fontFamily="@font/kotra_hope"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_marginTop="0dp" />
         </LinearLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+        <!-- AI관 섹션 -->
+        <TextView
+            android:id="@+id/text_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AI관"
+            android:fontFamily="@font/kotra_hope"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toTopOf="@id/section_card_view"
+            app:layout_constraintStart_toStartOf="@id/section_card_view"
+            app:layout_constraintTop_toBottomOf="@id/card_view"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="20dp"/>
+
+        <LinearLayout
+            android:id="@+id/section_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:padding="15dp"
+            android:background="@drawable/gradient_border"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginBottom="100dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="현재 주차 공간 수"
+                    android:fontFamily="@font/kotra_hope"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/btn_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="자세히 보기"
+                    android:fontFamily="@font/kotra_hope"
+                    android:backgroundTint="#88BDF5"
+                    android:textColor="#F9F9F9" />
+            </LinearLayout>
+
+            <!-- 주차 공간 정보 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="일반 주차공간"
+                    android:fontFamily="@font/kotra_hope"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0 / 365"
+                    android:fontFamily="@font/kotra_hope"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="장애인 주차공간"
+                    android:fontFamily="@font/kotra_hope"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0 / 25"
+                    android:fontFamily="@font/kotra_hope"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 사용자 정의 네비게이션 바 -->
+    <LinearLayout
+        android:id="@+id/custom_navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
         android:background="#014f9e"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu" />
+        android:paddingVertical="8dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-</RelativeLayout>
+        <!-- 첫 번째 버튼 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
 
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:id="@+id/main"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".MainActivity2">-->
+            <ImageView
+                android:id="@+id/btn_home"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_home"
+                android:contentDescription="홈" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="홈"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- 두 번째 버튼 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/btn_myinfo"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_myinfo"
+                android:contentDescription="마이페이지" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="마이페이지"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- 세 번째 버튼 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_parking"
+                android:contentDescription="주차공간" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주차공간"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+        <!-- 네 번째 버튼 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_payment"
+                android:contentDescription="결제" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="결제"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 <!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->

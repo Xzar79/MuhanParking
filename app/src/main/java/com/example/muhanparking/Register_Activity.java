@@ -13,9 +13,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
-import androidx.appcompat.widget.Toolbar;
+import android.widget.ImageView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,11 +42,15 @@ public class Register_Activity extends AppCompatActivity {
         spinnerGender.setAdapter(adapter);
 
         /* 상단 툴바의 뒤로가기 */
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        ImageView back = findViewById(R.id.back_arrow);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Register_Activity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         /* 이메일, 비밀번호 등 */
         EditText ctEmail = findViewById(R.id.ctEmail);

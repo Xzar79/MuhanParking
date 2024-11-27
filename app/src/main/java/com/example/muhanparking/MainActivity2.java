@@ -1,11 +1,9 @@
 package com.example.muhanparking;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -16,8 +14,6 @@ import android.content.Intent;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity2 extends AppCompatActivity {
-
-    BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +26,6 @@ public class MainActivity2 extends AppCompatActivity {
             return insets;
         });
 
-        bottomNav = findViewById(R.id.bottom_nav);
-        bottomNav.setOnNavigationItemSelectedListener(item -> {
-            int itemId = item.getItemId();
-            if(itemId == R.id.nav_payment) {
-                startActivity(new Intent(MainActivity2.this, Regular_Parking_Activity.class));
-                return true;
-            }
-
-            return false;
-        });
-
-
         ImageView menuIcon = findViewById(R.id.menu_icon);
         menuIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +33,7 @@ public class MainActivity2 extends AppCompatActivity {
                 // 햄버거 메뉴 클릭 시 실행될 동작
                 Intent intent = new Intent(MainActivity2.this, Menu_Activity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
