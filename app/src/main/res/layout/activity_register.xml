@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register_Activity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="Sign Up"
+        android:titleTextColor="#FFFFFF"
+        android:background="?attr/colorPrimary"
+        android:layout_alignParentTop="true"
+        app:navigationIcon="@android:drawable/ic_menu_revert"
+        app:titleCentered="true"
+        android:elevation="4dp"/>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textSize="24sp"
+            android:layout_marginBottom="32dp" />
+
+        <EditText
+            android:id="@+id/ctId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/ctEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/ctPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/ctPassword2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password again"
+            android:inputType="textPassword"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 이름 입력 -->
+        <EditText
+            android:id="@+id/ctName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="이름"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 성별 입력 -->
+        <Spinner
+            android:id="@+id/ctGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 전화번호 입력 -->
+        <EditText
+            android:id="@+id/ctPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="전화번호"
+            android:inputType="phone"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 주소 입력 -->
+        <EditText
+            android:id="@+id/ctAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="주소"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 계좌번호 입력 -->
+        <EditText
+            android:id="@+id/ctAccountNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="계좌번호"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 학번 입력 -->
+        <EditText
+            android:id="@+id/ctStudentId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="학번"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 학과 입력 -->
+        <EditText
+            android:id="@+id/ctDepartment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="학과"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 생년월일 입력 -->
+        <EditText
+            android:id="@+id/ctBirthDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="생일 (YYYY-MM-DD)"
+            android:inputType="date"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnSuccess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Success"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/button_background"
+            android:layout_marginBottom="16dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

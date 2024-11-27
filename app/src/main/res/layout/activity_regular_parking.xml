@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Regular_Parking_Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#FFFFFF">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@drawable/rounded_background">
+
+            <!-- 뒤로가기 -->
+            <ImageView
+                android:id="@+id/back_arrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back"
+                android:layout_alignParentStart="true" />
+
+            <ImageView
+                android:id="@+id/help"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_help" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/gradient_border">
+
+            <TextView
+                android:id="@+id/regular_parking_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kotra_hope"
+                android:text="1. 신청 및 조회하기 버튼 클릭 \n 2. 가천대학교 포털 로그인 \n 3. 상단의 학사행정시스템 클릭 \n 4. 왼쪽 메뉴의 학생서비스 내 정기주차 신청에 작성 \n 5. 신청 승인이 완료 되면 서류 다운로드 버튼 클릭 \n 6. 서류를 다운로드하고 서류 양식에 맞게 작성한다. \n 7. 서류 업로드를 클릭하여 서류를 업로드한다."
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:padding="15dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_app_inquery"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_background"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="신청 및 조회하기"
+            android:fontFamily="@font/kotra_hope"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/btn_download_paper"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_background"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="서류 다운로드"
+            android:fontFamily="@font/kotra_hope"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/btn_upload_paper"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_background"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="서류 업로드"
+            android:fontFamily="@font/kotra_hope"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/btn_inquery_paper"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_background"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="내 서류 조회"
+            android:fontFamily="@font/kotra_hope"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/btn_payment_manage"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_background"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="결제 관리"
+            android:fontFamily="@font/kotra_hope"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
