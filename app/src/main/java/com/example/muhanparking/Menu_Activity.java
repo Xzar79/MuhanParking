@@ -31,7 +31,6 @@ public class Menu_Activity extends AppCompatActivity {
         Button regularParking = findViewById(R.id.btn_regular_parking);
         Button inqueryApp = findViewById(R.id.btn_inquery_app);
         Button inqueryLoc = findViewById(R.id.btn_inquery_location);
-        Button recommandParking = findViewById(R.id.btn_recommand_parking);
         Button simulation = findViewById(R.id.btn_simulation);
         Button emptyParking = findViewById(R.id.btn_empty_parking);
         Button mypage = findViewById(R.id.btn_mypage);
@@ -57,35 +56,34 @@ public class Menu_Activity extends AppCompatActivity {
         inqueryApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Menu_Activity.this, "신청 조회 페이지", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Menu_Activity.this, "신청이 되었는지 안되었는지 모릅니다.", Toast.LENGTH_SHORT).show();
             }
         });
 
         inqueryLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Menu_Activity.this, "주차장 위치 조회 페이지", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        recommandParking.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(Menu_Activity.this, "실시간 주차장 추천", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Menu_Activity.this, Parking_Location_Activity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
         simulation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Menu_Activity.this, "실시간 주차 공간 조회", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Menu_Activity.this, Simulation_Activity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
         emptyParking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Menu_Activity.this, "남은 주차 자리 수 보기", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Menu_Activity.this, Empty_Parking_Activity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

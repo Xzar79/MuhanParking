@@ -13,6 +13,18 @@
         android:theme="@style/Theme.MuhanParking"
         tools:targetApi="31">
         <activity
+            android:name=".Simulation_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Payment_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Parking_Location_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Empty_Parking_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Mypage_Activity"
             android:exported="false" />
         <activity
@@ -41,6 +53,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="n64dq5ir2x" />
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_TYPE"
+            android:value="gov" />
     </application>
 
 </manifest>

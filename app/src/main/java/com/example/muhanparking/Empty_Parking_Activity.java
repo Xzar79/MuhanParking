@@ -10,17 +10,18 @@ import androidx.core.view.WindowInsetsCompat;
 
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Button;
-import android.content.Intent;
 import android.widget.TextView;
+import android.content.Intent;
+import android.widget.Button;
 
-public class Mypage_Activity extends AppCompatActivity {
+
+public class Empty_Parking_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_mypage);
+        setContentView(R.layout.activity_empty_parking);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -30,17 +31,18 @@ public class Mypage_Activity extends AppCompatActivity {
         ImageView back = findViewById(R.id.back_arrow);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Mypage_Activity.this, MainActivity2.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(Empty_Parking_Activity.this, MainActivity2.class);
                 startActivity(intent);
                 finish();
             }
         });
-        Button logout = findViewById(R.id.logout_button);
-        logout.setOnClickListener(new View.OnClickListener() {
+
+        Button simul = findViewById(R.id.btn_ai_simulation);
+        simul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Mypage_Activity.this, MainActivity.class);
+                Intent intent = new Intent(Empty_Parking_Activity.this, Simulation_Activity.class);
                 startActivity(intent);
                 finish();
             }

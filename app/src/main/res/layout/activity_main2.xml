@@ -30,6 +30,15 @@
                 android:src="@drawable/ic_menu"
                 android:layout_alignParentStart="true" />
 
+            <!-- 알림 메뉴 -->
+            <ImageView
+                android:id="@+id/noti_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_noti"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="50dp"/>
+
             <!-- 설정 버튼 -->
             <ImageView
                 android:id="@+id/settings_icon"

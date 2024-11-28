@@ -65,5 +65,14 @@ public class Regular_Parking_Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Regular_Parking_Activity.this, Payment_Activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }
