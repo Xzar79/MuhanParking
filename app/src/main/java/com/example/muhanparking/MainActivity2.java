@@ -48,8 +48,10 @@ public class MainActivity2 extends AppCompatActivity {
         notiIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(MainActivity2.this, )
-                Toast.makeText(MainActivity2.this, "알림 버튼 클릭됨!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity2.this, Notifications_Activity.class);
+                startActivity(intent);
+                finish();
+
             }
         });
 
@@ -67,7 +69,9 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 설정 버튼 클릭 시 실행될 동작
-                Toast.makeText(MainActivity2.this, "설정 버튼 클릭됨!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity2.this, Setting_Activity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
