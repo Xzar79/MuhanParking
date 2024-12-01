@@ -31,7 +31,7 @@ public class Payment_Activity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Payment_Activity.this, MainActivity2.class);
+                Intent intent = new Intent(Payment_Activity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

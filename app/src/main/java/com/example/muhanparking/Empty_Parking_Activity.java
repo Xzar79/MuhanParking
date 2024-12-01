@@ -10,7 +10,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.content.Intent;
 import android.widget.Button;
 
@@ -32,7 +31,7 @@ public class Empty_Parking_Activity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Empty_Parking_Activity.this, MainActivity2.class);
+                Intent intent = new Intent(Empty_Parking_Activity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

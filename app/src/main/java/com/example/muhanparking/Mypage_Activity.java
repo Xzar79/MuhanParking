@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Button;
 import android.content.Intent;
-import android.widget.TextView;
 
 public class Mypage_Activity extends AppCompatActivity {
 
@@ -31,7 +30,7 @@ public class Mypage_Activity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Mypage_Activity.this, MainActivity2.class);
+                Intent intent = new Intent(Mypage_Activity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -40,7 +39,7 @@ public class Mypage_Activity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Mypage_Activity.this, MainActivity.class);
+                Intent intent = new Intent(Mypage_Activity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

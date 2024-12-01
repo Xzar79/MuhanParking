@@ -16,10 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.widget.ImageView;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import androidx.appcompat.app.AppCompatActivity;
 
 public class Register_Activity extends AppCompatActivity {
 
@@ -46,7 +43,7 @@ public class Register_Activity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Register_Activity.this, MainActivity.class);
+                Intent intent = new Intent(Register_Activity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -87,7 +84,7 @@ public class Register_Activity extends AppCompatActivity {
                     Toast.makeText(Register_Activity.this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
                 } else {
                     if(password1.equals(password2)) {
-                        Intent intent = new Intent(Register_Activity.this, MainActivity.class);
+                        Intent intent = new Intent(Register_Activity.this, LoginActivity.class);
                         startActivity(intent);
                         finish();
                     }

@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.content.Intent;
-import android.widget.Toast;
 
 public class Regular_Parking_Activity extends AppCompatActivity {
 
@@ -43,7 +42,7 @@ public class Regular_Parking_Activity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Regular_Parking_Activity.this, MainActivity2.class);
+                Intent intent = new Intent(Regular_Parking_Activity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
