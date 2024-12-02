@@ -1,7 +1,6 @@
 package com.example.muhanparking;
 
 import android.os.Bundle;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -16,10 +15,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.widget.ImageView;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.muhanparking.api.RetrofitClient;
+import com.example.muhanparking.model.request.SignUpRequest;
+import com.example.muhanparking.model.response.BaseResponse;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Register_Activity extends AppCompatActivity {
 
@@ -46,7 +49,7 @@ public class Register_Activity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Register_Activity.this, MainActivity.class);
+                Intent intent = new Intent(Register_Activity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -71,30 +74,52 @@ public class Register_Activity extends AppCompatActivity {
         btnSuccess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = ctEmail.getText().toString();
-                String password1 = ctPassword.getText().toString();
+                // 입력값 가져오기
+                String username = ctId.getText().toString();
+                String password = ctPassword.getText().toString();
                 String password2 = ctPassword2.getText().toString();
-                String id = ctId.getText().toString();
                 String name = ctName.getText().toString();
-                String tel = ctPhone.getText().toString();
-                String add = ctAdd.getText().toString();
-                String acc = ctAcc.getText().toString();
-                String stuId = ctStuId.getText().toString();
-                String dep = ctDepart.getText().toString();
-                String birth = ctBir.getText().toString();
+                String phone = ctPhone.getText().toString();
+                String address = ctAdd.getText().toString();
+                String gender = spinnerGender.getSelectedItem().toString();
+                String studentId = ctStuId.getText().toString();
+                String department = ctDepart.getText().toString();
+                String birthDate = ctBir.getText().toString();
 
-                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password1) || TextUtils.isEmpty(password2)) {
-                    Toast.makeText(Register_Activity.this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
-                } else {
-                    if(password1.equals(password2)) {
-                        Intent intent = new Intent(Register_Activity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                    else {
-                        Toast.makeText(Register_Activity.this, "Invalid Password.", Toast.LENGTH_SHORT).show();
-                    }
+                // 입력값 검증
+                if (!password.equals(password2)) {
+                    Toast.makeText(Register_Activity.this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
+                    return;
                 }
+
+                // API 호출
+                SignUpRequest request = new SignUpRequest(username, password, name, phone,
+                        address, gender, Integer.parseInt(studentId),
+                        Integer.parseInt(department), birthDate);
+
+                RetrofitClient.getInstance().getUserApi().signup(request)
+                        .enqueue(new Callback<BaseResponse<Void>>() {
+                            @Override
+                            public void onResponse(Call<BaseResponse<Void>> call,
+                                                   Response<BaseResponse<Void>> response) {
+                                if (response.isSuccessful()) {
+                                    Toast.makeText(Register_Activity.this,
+                                            "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Register_Activity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    Toast.makeText(Register_Activity.this,
+                                            "회원가입 실패", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<BaseResponse<Void>> call, Throwable t) {
+                                Toast.makeText(Register_Activity.this,
+                                        "네트워크 오류", Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
         });
     }

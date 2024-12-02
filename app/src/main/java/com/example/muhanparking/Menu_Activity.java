@@ -38,7 +38,7 @@ public class Menu_Activity extends AppCompatActivity {
         backIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Menu_Activity.this, MainActivity2.class);
+                Intent intent = new Intent(Menu_Activity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
