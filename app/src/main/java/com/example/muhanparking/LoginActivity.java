@@ -14,6 +14,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.muhanparking.api.RetrofitClient;
+import com.example.muhanparking.model.request.LoginRequest;
+import com.example.muhanparking.model.response.BaseResponse;
+import com.example.muhanparking.model.response.LoginResponse;
+import com.example.muhanparking.util.PreferenceManager;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -35,25 +44,40 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = etId.getText().toString();
+                String username = etId.getText().toString();
                 String password = etPassword.getText().toString();
 
-                // 입력값 검증
-                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-                    Toast.makeText(LoginActivity.this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
-                } else {
-                    // 간단한 로그인 검증 (하드코딩된 값과 비교)
-                    String validId = "test";
-                    String validPassword = "1234";
-
-                    if (email.equals(validId) && password.equals(validPassword)) {
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);  // 새 Activity 시작
-                        finish();  // 현재 Activity 종료 (선택 사항)
-                    } else {
-                        Toast.makeText(LoginActivity.this, "Invalid Email or Password.", Toast.LENGTH_SHORT).show();
-                    }
+                if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
+                    Toast.makeText(LoginActivity.this, "모든 필드를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
                 }
+
+                LoginRequest loginRequest = new LoginRequest(username, password);
+                RetrofitClient.getInstance().getUserApi().login(loginRequest)
+                        .enqueue(new Callback<BaseResponse<LoginResponse>>() {
+                            @Override
+                            public void onResponse(Call<BaseResponse<LoginResponse>> call, Response<BaseResponse<LoginResponse>> response) {
+                                if (response.isSuccessful() && response.body() != null) {
+                                    // 토큰과 사용자 이름 저장
+                                    String token = response.body().getData().getToken();
+                                    String username = response.body().getData().getUsername();
+                                    PreferenceManager.saveToken(LoginActivity.this, token);
+                                    PreferenceManager.saveUsername(LoginActivity.this, username);
+
+                                    // 메인 화면으로 이동
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    Toast.makeText(LoginActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<BaseResponse<LoginResponse>> call, Throwable t) {
+                                Toast.makeText(LoginActivity.this, "네트워크 오류", Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
         });
 
