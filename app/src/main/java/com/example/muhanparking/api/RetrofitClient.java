@@ -1,3 +1,4 @@
+
 package com.example.muhanparking.api;
 
 import retrofit2.Retrofit;
@@ -6,11 +7,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 public class RetrofitClient {
-    private static final String BASE_URL = "http://10.0.2.2:8080/";  // 안드로이드 에뮬레이터용 localhost
+    private static final String BASE_URL = "http://10.0.2.2:8080/";
     private static RetrofitClient instance;
     private final Retrofit retrofit;
 
     private RetrofitClient() {
+        // 여기에 LoggingInterceptor 추가
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
