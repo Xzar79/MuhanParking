@@ -64,6 +64,14 @@ public class Regular_Parking_Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+//버튼으로 신청서 이동
+        appInquery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Regular_Parking_Activity.this, Application_Form_Activity.class);
+                startActivity(intent);
+            }
+        });
 
         payment.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -74,52 +74,83 @@ public class Register_Activity extends AppCompatActivity {
         btnSuccess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 입력값 가져오기
-                String username = ctId.getText().toString();
-                String password = ctPassword.getText().toString();
-                String password2 = ctPassword2.getText().toString();
-                String name = ctName.getText().toString();
-                String phone = ctPhone.getText().toString();
-                String address = ctAdd.getText().toString();
-                String gender = spinnerGender.getSelectedItem().toString();
-                String studentId = ctStuId.getText().toString();
-                String department = ctDepart.getText().toString();
-                String birthDate = ctBir.getText().toString();
+                try {
+                    // 입력값 가져오기
+                    String username = ctId.getText().toString().trim();
+                    String password = ctPassword.getText().toString();
+                    String password2 = ctPassword2.getText().toString();
+                    String name = ctName.getText().toString().trim();
+                    String phone = ctPhone.getText().toString().trim();
+                    String address = ctAdd.getText().toString().trim();
+                    String gender = spinnerGender.getSelectedItem().toString();
+                    String studentIdStr = ctStuId.getText().toString().trim();
+                    String departmentStr = ctDepart.getText().toString().trim();
+                    String birthDate = ctBir.getText().toString().trim();
 
-                // 입력값 검증
-                if (!password.equals(password2)) {
-                    Toast.makeText(Register_Activity.this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                    // 필수 입력값 검증
+                    if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password) ||
+                            TextUtils.isEmpty(name) || TextUtils.isEmpty(studentIdStr) ||
+                            TextUtils.isEmpty(departmentStr)) {
+                        Toast.makeText(Register_Activity.this,
+                                "필수 항목을 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-                // API 호출
-                SignUpRequest request = new SignUpRequest(username, password, name, phone,
-                        address, gender, Integer.parseInt(studentId),
-                        Integer.parseInt(department), birthDate);
+                    // 비밀번호 일치 검사
+                    if (!password.equals(password2)) {
+                        Toast.makeText(Register_Activity.this,
+                                "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-                RetrofitClient.getInstance().getUserApi().signup(request)
-                        .enqueue(new Callback<BaseResponse<Void>>() {
-                            @Override
-                            public void onResponse(Call<BaseResponse<Void>> call,
-                                                   Response<BaseResponse<Void>> response) {
-                                if (response.isSuccessful()) {
-                                    Toast.makeText(Register_Activity.this,
-                                            "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(Register_Activity.this, LoginActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    Toast.makeText(Register_Activity.this,
-                                            "회원가입 실패", Toast.LENGTH_SHORT).show();
+                    // 학번과 학과 코드가 숫자인지 검사
+                    if (!studentIdStr.matches("\\d+") || !departmentStr.matches("\\d+")) {
+                        Toast.makeText(Register_Activity.this,
+                                "학번과 학과 코드는 숫자만 입력 가능합니다.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    int studentId = Integer.parseInt(studentIdStr);
+                    int department = Integer.parseInt(departmentStr);
+
+                    // API 호출
+                    SignUpRequest request = new SignUpRequest(
+                            username, password, name, phone,
+                            address, gender, studentId, department, birthDate
+                    );
+
+                    RetrofitClient.getInstance().getUserApi().signup(request)
+                            .enqueue(new Callback<BaseResponse<Void>>() {
+                                @Override
+                                public void onResponse(Call<BaseResponse<Void>> call,
+                                                       Response<BaseResponse<Void>> response) {
+                                    if (response.isSuccessful() && response.body() != null) {
+                                        if(response.body().isSuccess()) {
+                                            Toast.makeText(Register_Activity.this,
+                                                    "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(Register_Activity.this, LoginActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        } else {
+                                            Toast.makeText(Register_Activity.this,
+                                                    response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    } else {
+                                        Toast.makeText(Register_Activity.this,
+                                                "서버 오류가 발생했습니다.", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
 
-                            @Override
-                            public void onFailure(Call<BaseResponse<Void>> call, Throwable t) {
-                                Toast.makeText(Register_Activity.this,
-                                        "네트워크 오류", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                                @Override
+                                public void onFailure(Call<BaseResponse<Void>> call, Throwable t) {
+                                    Toast.makeText(Register_Activity.this,
+                                            "네트워크 오류: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                } catch (Exception e) {
+                    Toast.makeText(Register_Activity.this,
+                            "오류가 발생했습니다: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
