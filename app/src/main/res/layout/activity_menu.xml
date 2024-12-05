@@ -29,44 +29,12 @@
 
         </RelativeLayout>
 
-        <!-- 정기 주차 신청 -->
-        <Button
-            android:id="@+id/btn_regular_parking"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/button_background"
-            android:text="정기 주차 신청"
-            android:fontFamily="@font/kotra_hope"
-            android:textSize="25sp"
-            android:textColor="#F9F9F9"
-            android:textStyle="bold" />
-
-        <!-- 신청 조회 -->
-        <Button
-            android:id="@+id/btn_inquery_app"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_background"
-            android:text="신청 조회"
-            android:fontFamily="@font/kotra_hope"
-            android:textSize="25sp"
-            android:textColor="#F9F9F9"
-            android:textStyle="bold" />
-
         <!-- 주차장 위치 조회 -->
         <Button
             android:id="@+id/btn_inquery_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:layout_weight="1"
             android:background="@drawable/button_background"
             android:text="주차장 위치 조회"
             android:fontFamily="@font/kotra_hope"
@@ -79,8 +47,8 @@
             android:id="@+id/btn_simulation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/button_background"
             android:text="실시간 주차 공간 조회"
             android:fontFamily="@font/kotra_hope"
@@ -93,8 +61,10 @@
             android:id="@+id/btn_empty_parking"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/button_background"
             android:text="남은 주차 자리 수 보기"
             android:fontFamily="@font/kotra_hope"
@@ -102,13 +72,21 @@
             android:textColor="#F9F9F9"
             android:textStyle="bold" />
 
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginVertical="8dp"
+            android:background="#CCCCCC"
+            android:layout_marginTop="35dp"/>
+
         <!-- 마이페이지 -->
         <Button
             android:id="@+id/btn_mypage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/button_background"
             android:text="마이페이지"
             android:fontFamily="@font/kotra_hope"
