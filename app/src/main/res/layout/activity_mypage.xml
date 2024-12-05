@@ -144,7 +144,9 @@
                         android:text="로그아웃"
                         android:background="#dc1b1b"
                         android:textColor="#FFFFFF"
-                        android:layout_marginBottom="8dp" />
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"/>
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -158,50 +160,6 @@
             app:layout_constraintTop_toBottomOf="@id/user_info_card"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
-
-            <TextView
-                android:id="@+id/txt_regular_app"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:layout_margin="10dp"
-                android:text="정기주차 신청 여부: O"
-                android:textSize="30sp"
-                android:textColor="#000000"
-                android:fontFamily="@font/kotra_hope"/>
-
-            <TextView
-                android:id="@+id/txt_regular_reg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:layout_margin="10dp"
-                android:text="정기주차 등록 여부: O"
-                android:textSize="30sp"
-                android:textColor="#000000"
-                android:fontFamily="@font/kotra_hope"/>
-
-            <TextView
-                android:id="@+id/txt_payment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:layout_margin="10dp"
-                android:text="결제 여부: O"
-                android:textSize="30sp"
-                android:textColor="#000000"
-                android:fontFamily="@font/kotra_hope"/>
-
-<!--            <Button-->
-<!--                android:id="@+id/btn_edit_password"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="10dp"-->
-<!--                android:background="@drawable/button_background"-->
-<!--                android:text="비밀번호 변경"-->
-<!--                android:fontFamily="@font/kotra_hope"-->
-<!--                android:textColor="#FFFFFF"-->
-<!--                android:textSize="30sp" />-->
 
             <Button
                 android:id="@+id/btn_edit_button"
