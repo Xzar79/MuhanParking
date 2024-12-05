@@ -34,10 +34,6 @@ public class RetrofitClient {
         return instance;
     }
 
-    public ParkingApiService getApiService() {
-        return retrofit.create(ParkingApiService.class);
-    }
-
 
     public UserApi getUserApi() {
         return retrofit.create(UserApi.class);
