@@ -5,19 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".Parking_Location_Activity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#FFFFFF">
-
         <RelativeLayout
+            android:id="@+id/toolbar"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:background="@drawable/rounded_background">
+            android:layout_height="56dp"
+            android:background="@drawable/rounded_background"
+            app:layout_constraintTop_toTopOf="parent">
 
             <!-- 뒤로가기 -->
             <ImageView
@@ -25,52 +22,30 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_back"
-                android:layout_alignParentStart="true"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                app:tint="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주차장 위치"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:fontFamily="@font/pretendard_bold"
+                android:layout_centerInParent="true"/>
 
         </RelativeLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+    <!-- 지도 -->
 
-            <Button
-                android:id="@+id/btn_ai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="15dp"
-                android:background="@drawable/button_background"
-                android:text="AI관"
-                android:fontFamily="@font/kotra_hope"
-                android:textSize="30sp" />
-
-        </LinearLayout>
-            
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/gradient_border"
-            android:layout_margin="20dp"
-            android:gravity="center_horizontal"
-            android:padding="10dp">
-
-            <ImageView
-                android:id="@+id/map_api"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/test_map_img"
-                android:scaleType="fitCenter"
-                android:layout_gravity="center_horizontal" />
-
-
-        </LinearLayout>
-                
-
-
-
-
-    </LinearLayout>
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="-150dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

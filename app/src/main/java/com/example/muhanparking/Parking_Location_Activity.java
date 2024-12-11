@@ -2,40 +2,47 @@ package com.example.muhanparking;
 
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.content.Intent;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Parking_Location_Activity extends AppCompatActivity {
+public class Parking_Location_Activity extends AppCompatActivity implements OnMapReadyCallback {
+    private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_parking_location);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
-        ImageView back = findViewById(R.id.back_arrow);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Parking_Location_Activity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
+    }
 
-//        NaverMapSdk.getInstance(this).setClient(
-//                new NaverMapSdk.NaverCloudPlatformClient("n64dq5ir2x"));
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // 가천대학교 AI공학관 위치
+        LatLng aiBuilding = new LatLng(37.455817, 127.133609);  // AI공학관의 실제 좌표
+
+        // 기본 마커 추가
+        MarkerOptions markerOptions = new MarkerOptions()
+                .position(aiBuilding)
+                .title("AI공학관 주차장")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+
+        mMap.addMarker(markerOptions);
+
+        // 카메라를 AI공학관 위치로 이동 (줌 레벨 17)
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(aiBuilding, 17));
     }
 }

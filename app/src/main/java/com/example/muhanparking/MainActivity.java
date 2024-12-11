@@ -1,104 +1,73 @@
 package com.example.muhanparking;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.Button;
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main2);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        setContentView(R.layout.activity_main);
+
+        // 폰트 초기화
+        Typeface pretendardBold = ResourcesCompat.getFont(this, R.font.pretendard_bold);
+        Typeface pretendardMedium = ResourcesCompat.getFont(this, R.font.pretendard_medium);
+
+        // 네비게이션 바 버튼들
+        ImageView btnHome = findViewById(R.id.btn_home);
+        ImageView btnParking = findViewById(R.id.btn_parking);
+        ImageView btnMyInfo = findViewById(R.id.btn_myinfo);
+
+        // 기타 버튼
+        Button btnMore = findViewById(R.id.btn_more);
+
+        // 텍스트뷰들 폰트 적용
+        TextView textMyInfo = findViewById(R.id.text_my_info);
+        TextView carNum = findViewById(R.id.car_num);
+
+        textMyInfo.setTypeface(pretendardBold);
+        carNum.setTypeface(pretendardMedium);
+
+        // 네비게이션 바 클릭 이벤트 처리
+        btnHome.setOnClickListener(v -> {
+            // 이미 홈 화면이므로 동작 안함
         });
 
-        ImageView myInfo = findViewById(R.id.btn_myinfo);
-        ImageView parking = findViewById(R.id.btn_parking);
-        ImageView regular = findViewById(R.id.btn_regular_parking);
-        ImageView menuIcon = findViewById(R.id.menu_icon);
-        ImageView settingsIcon = findViewById(R.id.settings_icon);
-        ImageView notiIcon = findViewById(R.id.noti_icon);
-        Button more = findViewById(R.id.btn_more);
-
-        menuIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 햄버거 메뉴 클릭 시 실행될 동작
-                Intent intent = new Intent(MainActivity.this, Menu_Activity.class);
-                startActivity(intent);
-                finish();
-            }
+        btnParking.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Parking_Location_Activity.class);
+            startActivity(intent);
         });
 
-        notiIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Notifications_Activity.class);
-                startActivity(intent);
-                finish();
-
-            }
-        });
-
-        parking.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Simulation_Activity.class);
-                startActivity(intent);
-                finish();
-            }
+        btnMyInfo.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Mypage_Activity.class);
+            startActivity(intent);
         });
 
 
-        settingsIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 설정 버튼 클릭 시 실행될 동작
-                Intent intent = new Intent(MainActivity.this, Setting_Activity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        regular.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Regular_Parking_Activity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        myInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Mypage_Activity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        //자세히 보기 버튼
-        more.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Empty_Parking_Activity.class);
-                startActivity(intent);
-                finish();
-            }
+        btnMore.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Empty_Parking_Activity.class);
+            startActivity(intent);
         });
     }
+
+    /* 주차 현황 업데이트 메서드
+    private void updateParkingDisplay(int normalAvailable, int normalTotal,
+                                      int disabledAvailable, int disabledTotal) {
+        LinearLayout normalSpace = findViewById(R.id.normal_space_layout);
+        LinearLayout disabledSpace = findViewById(R.id.disabled_space_layout);
+
+        TextView normalText = normalSpace.findViewById(R.id.space_count);
+        TextView disabledText = disabledSpace.findViewById(R.id.space_count);
+
+        normalText.setText(String.format("%d / %d", normalAvailable, normalTotal));
+        disabledText.setText(String.format("%d / %d", disabledAvailable, disabledTotal));
+    }*/
 }

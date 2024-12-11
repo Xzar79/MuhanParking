@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
+
                 LoginRequest loginRequest = new LoginRequest(username, password);
                 RetrofitClient.getInstance().getUserApi().login(loginRequest)
                         .enqueue(new Callback<BaseResponse<LoginResponse>>() {
@@ -73,11 +74,21 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             }
 
+
                             @Override
                             public void onFailure(Call<BaseResponse<LoginResponse>> call, Throwable t) {
                                 Toast.makeText(LoginActivity.this, "네트워크 오류", Toast.LENGTH_SHORT).show();
                             }
                         });
+            }
+        });
+
+        Button btnFindID = findViewById(R.id.btnFindID);
+        btnFindID.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, Find_ID_Activity.class);
+                startActivity(intent);
             }
         });
 

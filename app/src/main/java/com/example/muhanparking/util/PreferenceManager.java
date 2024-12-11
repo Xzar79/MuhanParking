@@ -3,6 +3,8 @@ package com.example.muhanparking.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.muhanparking.Mypage_Activity;
+
 public class PreferenceManager {
     private static final String PREF_NAME = "MuhanParkingPrefs";
     private static final String KEY_TOKEN = "jwt_token";
@@ -48,5 +50,9 @@ public class PreferenceManager {
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.clear();
         editor.apply();
+    }
+
+    public static void clearUsername(Mypage_Activity mypageActivity) {
+
     }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#4D014F9E"/> <!-- 30% 투명도의 파란색 -->
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="#1A014F9E"/> <!-- 10% 투명도의 파란색 -->
+        </shape>
+    </item>
+</selector>

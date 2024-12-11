@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="800dp"
+    android:height="400dp"
+    android:viewportWidth="800"
+    android:viewportHeight="400">
+    <!-- a구역 주차장 레이아웃 -->
+    <!-- 주차 공간들을 직사각형으로 -->
+    <path
+        android:fillColor="#EEEEEE"
+        android:strokeColor="#000000"
+        android:strokeWidth="2"
+        android:pathData="M50,50 h100 v200 h-100 z"/>
+    <!-- 나중에 주차 공간들 추가 -->
+</vector>

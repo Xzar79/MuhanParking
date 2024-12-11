@@ -1,17 +1,16 @@
 package com.example.muhanparking;
 
-import android.os.Bundle;
+import static androidx.core.content.ContextCompat.startActivity;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import android.view.View;
-import android.widget.ImageView;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class Empty_Parking_Activity extends AppCompatActivity {
@@ -19,32 +18,37 @@ public class Empty_Parking_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_empty_parking);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
+        // 뒤로가기 버튼
         ImageView back = findViewById(R.id.back_arrow);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Empty_Parking_Activity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(Empty_Parking_Activity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         });
 
-        Button simul = findViewById(R.id.btn_ai_simulation);
-        simul.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Empty_Parking_Activity.this, Simulation_Activity.class);
-                startActivity(intent);
-                finish();
-            }
+        RelativeLayout zoneA = findViewById(R.id.zone_a);
+        RelativeLayout zoneB = findViewById(R.id.zone_b);
+        RelativeLayout zoneC = findViewById(R.id.zone_c);
+
+        // 각 구역 클릭 리스너 설정
+        zoneA.setOnClickListener(v -> {
+            Intent intent = new Intent(Empty_Parking_Activity.this, ParkingZone_Detail_Activity.class);
+            intent.putExtra("zone_id", "A");
+            startActivity(intent);
+        });
+
+        zoneB.setOnClickListener(v -> {
+            Intent intent = new Intent(Empty_Parking_Activity.this, ParkingZone_Detail_Activity.class);
+            intent.putExtra("zone_id", "B");
+            startActivity(intent);
+        });
+
+        zoneC.setOnClickListener(v -> {
+            Intent intent = new Intent(Empty_Parking_Activity.this, iot_test_Activity.class);
+            intent.putExtra("zone_id", "C");
+            startActivity(intent);
         });
     }
-}
+    }

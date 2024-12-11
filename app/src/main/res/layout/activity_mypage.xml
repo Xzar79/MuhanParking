@@ -5,6 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F9FF"
+    android:weightSum="1"
     tools:context=".Mypage_Activity">
 
     <LinearLayout
@@ -32,32 +35,35 @@
         </RelativeLayout>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/user_info_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-
-            app:layout_constraintTop_toBottomOf="@id/back_arrow"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:layout_margin="20dp"
+            android:layout_marginTop="60dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/gradient_border"
                 android:padding="16dp">
 
-                <!-- 왼쪽 사용자 정보 텍스트 -->
                 <LinearLayout
                     android:id="@+id/user_info_text"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:padding="24dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/button_section"
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_myinfo"
+                        android:layout_marginBottom="16dp"/>
 
                     <TextView
                         android:id="@+id/user_name"
@@ -65,10 +71,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:fontFamily="@font/kotra_hope"
                         android:text="김가천"
-                        android:textColor="#000000"
-                        android:textSize="25sp"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:textSize="24sp"
+                        android:textColor="#1F2937"
                         android:textStyle="bold" />
 
                     <TextView
@@ -77,10 +83,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:fontFamily="@font/kotra_hope"
                         android:text="202411111"
-                        android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:fontFamily="@font/pretendard_medium"
+                        android:textColor="#1F2937"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/user_major"
@@ -88,10 +94,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:fontFamily="@font/kotra_hope"
                         android:text="컴퓨터공학과"
-                        android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:fontFamily="@font/pretendard_medium"
+                        android:textSize="20sp"
+                        android:textColor="#1F2937" />
 
                     <TextView
                         android:id="@+id/user_email"
@@ -99,10 +105,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:fontFamily="@font/kotra_hope"
                         android:text="Kimgachon@gachon.ac.kr"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
+                        android:fontFamily="@font/pretendard_medium"
+                        android:textSize="20sp"
+                        android:textColor="#1F2937" />
 
                     <TextView
                         android:id="@+id/user_car_number"
@@ -110,80 +116,116 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:fontFamily="@font/kotra_hope"
                         android:text="123가 4567"
-                        android:textColor="#000000"
-                        android:textSize="25sp" />
-                </LinearLayout>
+                        android:fontFamily="@font/pretendard_medium"
+                        android:textSize="20sp"
+                        android:textColor="#1F2937" />
 
-                <!-- 오른쪽 버튼 섹션 -->
-                <LinearLayout
-                    android:id="@+id/button_section"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintStart_toEndOf="@id/user_info_text"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:gravity="center">
 
-                    <ImageView
-                        android:id="@+id/profile_img"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginBottom="20dp"
-                        android:src="@drawable/ic_myinfo" />
-
-                    <Button
-                        android:id="@+id/logout_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/kotra_hope"
-                        android:textSize="25sp"
-                        android:text="로그아웃"
-                        android:background="#dc1b1b"
-                        android:textColor="#FFFFFF"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"/>
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- 추가 정보 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            app:layout_constraintTop_toBottomOf="@id/user_info_card"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:orientation="vertical">
 
-            <Button
+            <RelativeLayout
+                android:id="@+id/logout_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="로그아웃"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/pretendard_medium"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_rightarrow"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E5E5E5"/>
+
+            <RelativeLayout
                 android:id="@+id/btn_edit_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/kotra_hope"
-                android:layout_margin="10dp"
-                android:textSize="30sp"
-                android:text="정보 수정"
-                android:background="@drawable/button_background"
-                android:textColor="#FFFFFF"
-                android:layout_marginBottom="8dp" />
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="16dp">
 
-            <Button
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="정보 수정"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/pretendard_medium"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_rightarrow"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E5E5E5"/>
+
+            <RelativeLayout
                 android:id="@+id/btn_delete_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/kotra_hope"
-                android:layout_margin="10dp"
-                android:textSize="30sp"
-                android:text="회원 탈퇴"
-                android:background="@drawable/button_background"
-                android:textColor="#FFFFFF" />
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="16dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="회원 탈퇴"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/pretendard_medium"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_rightarrow"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E5E5E5"/>
         </LinearLayout>
     </LinearLayout>
 

@@ -1,5 +1,8 @@
 package com.example.muhanparking;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +24,7 @@ import android.widget.ArrayAdapter;
 import com.example.muhanparking.api.RetrofitClient;
 import com.example.muhanparking.model.request.SignUpRequest;
 import com.example.muhanparking.model.response.BaseResponse;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -63,7 +68,6 @@ public class Register_Activity extends AppCompatActivity {
         EditText ctName = findViewById(R.id.ctName);
         EditText ctPhone = findViewById(R.id.ctPhone);
         EditText ctAdd = findViewById(R.id.ctAddress);
-        EditText ctAcc = findViewById(R.id.ctAccountNumber);
         EditText ctStuId = findViewById(R.id.ctStudentId);
         EditText ctDepart = findViewById(R.id.ctDepartment);
         EditText ctBir = findViewById(R.id.ctBirthDate);
@@ -86,6 +90,13 @@ public class Register_Activity extends AppCompatActivity {
                     String studentIdStr = ctStuId.getText().toString().trim();
                     String departmentStr = ctDepart.getText().toString().trim();
                     String birthDate = ctBir.getText().toString().trim();
+                    String email = ctEmail.getText().toString().trim();
+
+                    if (!isValidEmail(email)) {
+                        Toast.makeText(Register_Activity.this,
+                                "올바른 이메일 형식이 아닙니다.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
                     // 필수 입력값 검증
                     if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password) ||
@@ -103,10 +114,10 @@ public class Register_Activity extends AppCompatActivity {
                         return;
                     }
 
-                    // 학번과 학과 코드가 숫자인지 검사
-                    if (!studentIdStr.matches("\\d+") || !departmentStr.matches("\\d+")) {
+                    // 학번 코드가 숫자인지 검사
+                    if (!studentIdStr.matches("\\d+")) {
                         Toast.makeText(Register_Activity.this,
-                                "학번과 학과 코드는 숫자만 입력 가능합니다.", Toast.LENGTH_SHORT).show();
+                                "학번과 숫자만 입력 가능합니다.", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -116,14 +127,13 @@ public class Register_Activity extends AppCompatActivity {
                     // API 호출
                     SignUpRequest request = new SignUpRequest(
                             username, password, name, phone,
-                            address, gender, studentId, department, birthDate
+                            address, gender, studentId, department, birthDate, email
                     );
 
                     RetrofitClient.getInstance().getUserApi().signup(request)
                             .enqueue(new Callback<BaseResponse<Void>>() {
                                 @Override
-                                public void onResponse(Call<BaseResponse<Void>> call,
-                                                       Response<BaseResponse<Void>> response) {
+                                public void onResponse(Call<BaseResponse<Void>> call, Response<BaseResponse<Void>> response) {
                                     if (response.isSuccessful() && response.body() != null) {
                                         if(response.body().isSuccess()) {
                                             Toast.makeText(Register_Activity.this,
@@ -132,17 +142,29 @@ public class Register_Activity extends AppCompatActivity {
                                             startActivity(intent);
                                             finish();
                                         } else {
+                                            // 서버에서 보낸 실패 메시지 표시
+                                            String errorMessage = response.body().getMessage();
                                             Toast.makeText(Register_Activity.this,
-                                                    response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                                    errorMessage != null ? errorMessage : "회원가입 실패",
+                                                    Toast.LENGTH_SHORT).show();
                                         }
                                     } else {
-                                        Toast.makeText(Register_Activity.this,
-                                                "서버 오류가 발생했습니다.", Toast.LENGTH_SHORT).show();
+                                        try {
+                                            // 에러 응답 확인
+                                            String errorBody = response.errorBody().string();
+                                            Toast.makeText(Register_Activity.this,
+                                                    "서버 오류: " + errorBody, Toast.LENGTH_SHORT).show();
+                                        } catch (Exception e) {
+                                            Toast.makeText(Register_Activity.this,
+                                                    "서버 오류가 발생했습니다. (상태 코드: " + response.code() + ")",
+                                                    Toast.LENGTH_SHORT).show();
+                                        }
                                     }
                                 }
 
                                 @Override
                                 public void onFailure(Call<BaseResponse<Void>> call, Throwable t) {
+                                    Log.e("API_ERROR", "회원가입 실패", t);  // 로그 추가
                                     Toast.makeText(Register_Activity.this,
                                             "네트워크 오류: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
@@ -151,6 +173,23 @@ public class Register_Activity extends AppCompatActivity {
                     Toast.makeText(Register_Activity.this,
                             "오류가 발생했습니다: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
+            }
+
+            private boolean isValidEmail(String email) {
+                return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+            }
+
+            //비번
+            private boolean isValidPassword(String password) {
+                return password.length() >= 8;
+            }
+
+
+            //네트워크 홛인 로직
+            private boolean isNetworkAvailable() {
+                ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+                return networkInfo != null && networkInfo.isConnected();
             }
         });
     }
@@ -165,4 +204,5 @@ public class Register_Activity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }
