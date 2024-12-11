@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F6FA"
     tools:context=".Find_ID_Activity">
 
     <LinearLayout
@@ -49,10 +50,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="아이디 찾기"
-                    android:fontFamily="@font/kotra_hope"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:textSize="26sp"
+                    android:textColor="#1A1A1A"
                     android:layout_marginBottom="20dp" />
 
                 <EditText
@@ -60,6 +60,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="example@domain.com"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textColor="#1A1A1A"
+                    android:backgroundTint="#014F9E"
                     android:inputType="textEmailAddress"
                     android:padding="12dp"
                     android:layout_marginBottom="16dp" />
@@ -70,10 +74,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="아이디 찾기"
-                    android:fontFamily="@font/kotra_hope"
-                    android:backgroundTint="#AAD3F2"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:background="@drawable/rounded_background"
                     android:textColor="#FFFFFF"
-                    android:textSize="27sp"
+                    android:textSize="20sp"
                     android:layout_marginBottom="20dp" />
 
                 <!-- 결과 표시 -->

@@ -1,0 +1,97 @@
+[33mcommit ffbfad714aec15f611efc67c81d359b509136699[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: k-sulim <joy06270@naver.com>
+Date:   Wed Dec 4 10:33:43 2024 +0900
+
+    sulim-정기주차 신청서
+
+[33mcommit 80f4313f43fc06545eafe111e40a65c0e72254e5[m[33m ([m[1;31mupstream/master[m[33m)[m
+Author: Xzar79 <57945703+Xzar79@users.noreply.github.com>
+Date:   Tue Dec 3 17:35:28 2024 +0900
+
+    아이디 찾기 페이지 추가
+
+[33mcommit 06f97f35a9395d3f0c3c5adc4ebe19e0dcc72d4b[m
+Merge: 687df43 6982887
+Author: k-sulim <joy06270@naver.com>
+Date:   Tue Dec 3 16:38:20 2024 +0900
+
+    Merge pull request #3 from k-sulim/master
+    
+    sulim-register,login test2
+
+[33mcommit 6982887cf672e43160545e2002c1c355bc7de31b[m
+Author: k-sulim <joy06270@naver.com>
+Date:   Tue Dec 3 16:26:53 2024 +0900
+
+    sulim-register,login test2
+
+[33mcommit 687df433d89d4a9b3872a7accc54f4b977beff40[m
+Merge: d6ba75d e181b6a
+Author: k-sulim <joy06270@naver.com>
+Date:   Mon Dec 2 22:10:05 2024 +0900
+
+    Merge pull request #2 from k-sulim/master
+    
+    sulim-login,register test
+
+[33mcommit e181b6a0a353620a51d853ad2d6d2e0b1d1ca3c0[m
+Author: k-sulim <joy06270@naver.com>
+Date:   Mon Dec 2 20:37:58 2024 +0900
+
+    sulim-register,login test
+
+[33mcommit 8f7581469b9c2bd373542df14507d1586491a6fb[m
+Author: k-sulim <joy06270@naver.com>
+Date:   Mon Dec 2 20:28:55 2024 +0900
+
+    sulim-register,login test
+
+[33mcommit 6f7733b4e06160212246901290db963ac9cf4bc5[m
+Author: k-sulim <joy06270@naver.com>
+Date:   Sun Dec 1 17:52:35 2024 +0900
+
+    Activity 명 변경, 추가
+
+[33mcommit a210074ce24d134a764f5a008efafc98d698b14e[m
+Author: Xzar79 <57945703+xzar79@users.noreply.github.com>
+Date:   Sun Dec 1 17:20:26 2024 +0900
+
+    Activity 명 변경, 추가
+
+[33mcommit d6ba75d152101ffa029f0a780044131dafe8adc7[m
+Author: Xzar79 <57945703+Xzar79@users.noreply.github.com>
+Date:   Sat Nov 30 22:45:05 2024 +0900
+
+    수정 : 마이페이지, 시뮬레이션, 테마 등
+    추가 : 알림, 설정, 유저 정보 수정 등
+
+[33mcommit 2493eb50029fc56e1ab720d2554643778c90b9b6[m
+Author: xzar0215 <xzar0215@gmail.com>
+Date:   Thu Nov 28 15:39:51 2024 +0900
+
+    지도 API, 마이페이지 내의 하단 버튼, 알림 페이지를 제외한 나머지 화면 완성.
+
+[33mcommit 95f78a9915f9bafa7aebb32622e5e227b0b12dec[m
+Author: Xzar79 <57945703+Xzar79@users.noreply.github.com>
+Date:   Thu Nov 28 00:27:07 2024 +0900
+
+    마이페이지 기본 틀 구성
+
+[33mcommit 7e2faf2a99a722a440f3dae7f57219a0d072dca9[m
+Author: Xzar79 <57945703+Xzar79@users.noreply.github.com>
+Date:   Wed Nov 27 22:53:54 2024 +0900
+
+    정기주차 신청 페이지까지의 디테일 부분 수정.
+    (폰트 적용, 회원가입 페이지의 버튼, 메인 페이지의 네비 바, 테두리 박스의 테두리 색상, 상단 바 색상 등)
+
+[33mcommit 09ed0aa6037c0e1af7ee8c325f49c94bcc8283fa[m
+Author: Xzar79 <57945703+Xzar79@users.noreply.github.com>
+Date:   Wed Nov 27 18:45:11 2024 +0900
+
+    first commit
+
+[33mcommit 104cdb9d157238774a8c8ef7c753698f13b822b4[m
+Author: Xzar79 <57945703+Xzar79@users.noreply.github.com>
+Date:   Wed Nov 27 18:21:03 2024 +0900
+
+    first commit
