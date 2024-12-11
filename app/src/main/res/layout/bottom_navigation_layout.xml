@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/custom_navigation_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:elevation="16dp"
+    android:orientation="horizontal"
+    android:paddingVertical="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/btn_home_container"
+        style="@style/NavigationButton">
+        <ImageView
+            android:id="@+id/btn_home"
+            style="@style/NavigationIcon"
+            android:src="@drawable/ic_home" />
+        <TextView
+            style="@style/NavigationText"
+            android:text="홈" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_parking_container"
+        style="@style/NavigationButton">
+        <ImageView
+            android:id="@+id/btn_parking"
+            style="@style/NavigationIcon"
+            android:src="@drawable/ic_parking" />
+        <TextView
+            style="@style/NavigationText"
+            android:text="주차장위치" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_myinfo_container"
+        style="@style/NavigationButton">
+        <ImageView
+            android:id="@+id/btn_myinfo"
+            style="@style/NavigationIcon"
+            android:src="@drawable/ic_myinfo" />
+        <TextView
+            style="@style/NavigationText"
+            android:text="마이페이지" />
+    </LinearLayout>
+</LinearLayout>

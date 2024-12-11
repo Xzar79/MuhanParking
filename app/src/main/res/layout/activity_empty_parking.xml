@@ -1,105 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Empty_Parking_Activity">
+    android:orientation="vertical"
+    android:background="#FFFFFF">
 
+    <!-- 상단 툴바 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#1E40AF">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+    <!-- 주차장 구역 레이아웃 -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
-        android:background="#FFFFFF">
+        android:padding="16dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:background="@drawable/rounded_background">
-
-            <!-- 뒤로가기 -->
-            <ImageView
-                android:id="@+id/back_arrow"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_back"
-                android:layout_alignParentStart="true"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-        </RelativeLayout>
+        <!-- 상단 구역 (A, B) -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_weight="1"
-            android:orientation="vertical" >
+            android:layout_height="180dp"
+            android:orientation="horizontal">
+
+            <!-- B구역 -->
+            <RelativeLayout
+                android:id="@+id/zone_b"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="#E3F2FD"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="B구역"
+                    android:textColor="#FF0000"
+                    android:textSize="18sp"
+                    android:layout_margin="16dp"/>
+            </RelativeLayout>
+
+            <!-- A구역 -->
+            <RelativeLayout
+                android:id="@+id/zone_a"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:layout_marginStart="8dp"
+                android:background="#E8F5E9"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A구역"
+                    android:textColor="#FF0000"
+                    android:textSize="18sp"
+                    android:layout_margin="16dp"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- C구역 -->
+        <RelativeLayout
+            android:id="@+id/zone_c"
+            android:layout_width="140dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:background="#FFF3E0"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:textSize="30sp"
-                android:textColor="#000000"
-                android:text="AI관"
-                android:fontFamily="@font/kotra_hope" />
+                android:text="C구역"
+                android:textColor="#FF0000"
+                android:textSize="18sp"
+                android:layout_margin="16dp"/>
+        </RelativeLayout>
+    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:orientation="vertical"
-                android:padding="20dp"
-                android:background="@drawable/gradient_border">
+    <!-- 하단 정보 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF">
 
-                <TextView
-                    android:id="@+id/txt_normal"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:textAlignment="center"
-                    android:textSize="50sp"
-                    android:textColor="#000000"
-                    android:text="일반 : 123 / 456"
-                    android:fontFamily="@font/kotra_hope" />
+        <TextView
+            android:id="@+id/txt_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="일반 : 0 / 0"
+            android:textSize="16sp"/>
 
-                <TextView
-                    android:id="@+id/txt_disabled"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:textAlignment="center"
-                    android:text="장애인 : 25 / 100"
-                    android:textColor="#000000"
-                    android:textSize="50sp"
-                    android:fontFamily="@font/kotra_hope" />
-
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btn_ai_simulation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="15dp"
-                android:text="AI관 상황 조회하기"
-                android:background="@drawable/button_background"
-                android:textColor="#FFFFFF"
-                android:fontFamily="@font/kotra_hope"
-                android:textSize="30sp"/>
-
-
-        </LinearLayout>
-
-
+        <TextView
+            android:id="@+id/txt_disabled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="장애인 : 0 / 0"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
 
     </LinearLayout>
 
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

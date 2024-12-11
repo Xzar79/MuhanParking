@@ -40,8 +40,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    // 네이버 지도 SDK
-    implementation("com.naver.maps:map-sdk:3.20.0")
+    //  구글 지도 SDK
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.android.gms:play-services-location:21.0.1")
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -50,5 +51,6 @@ dependencies {
     implementation ("com.squareup.okhttp3:okhttp:4.9.0")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.0")
 
-
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 }

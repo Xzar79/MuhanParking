@@ -28,22 +28,9 @@ public class Help_Activity extends AppCompatActivity {
         ImageView back = findViewById(R.id.back_arrow);
         ImageView help = findViewById(R.id.help);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Help_Activity.this, Regular_Parking_Activity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
-        help.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Help_Activity.this, Regular_Parking_Activity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+
+
+
     }
 }
