@@ -1,5 +1,6 @@
 package com.example.muhanparking;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import android.widget.ImageView;
 
 public class Parking_Location_Activity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
@@ -25,6 +27,13 @@ public class Parking_Location_Activity extends AppCompatActivity implements OnMa
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
+
+        ImageView back = findViewById(R.id.back_arrow);
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(Parking_Location_Activity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
     }
 
     @Override
