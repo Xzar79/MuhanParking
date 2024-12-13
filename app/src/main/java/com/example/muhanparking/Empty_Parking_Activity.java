@@ -34,19 +34,19 @@ public class Empty_Parking_Activity extends AppCompatActivity {
 
         // 각 구역 클릭 리스너 설정
         zoneA.setOnClickListener(v -> {
-            Intent intent = new Intent(Empty_Parking_Activity.this, ParkingZone_Detail_Activity.class);
+            Intent intent = new Intent(Empty_Parking_Activity.this, iot_test_Activity.class);
             intent.putExtra("zone_id", "A");
             startActivity(intent);
         });
 
         zoneB.setOnClickListener(v -> {
-            Intent intent = new Intent(Empty_Parking_Activity.this, ParkingZone_Detail_Activity.class);
+            Intent intent = new Intent(Empty_Parking_Activity.this, Section_B_Activity.class);
             intent.putExtra("zone_id", "B");
             startActivity(intent);
         });
 
         zoneC.setOnClickListener(v -> {
-            Intent intent = new Intent(Empty_Parking_Activity.this, iot_test_Activity.class);
+            Intent intent = new Intent(Empty_Parking_Activity.this, Section_C_Activity.class);
             intent.putExtra("zone_id", "C");
             startActivity(intent);
         });
