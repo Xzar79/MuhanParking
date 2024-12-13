@@ -46,7 +46,7 @@ public class Empty_Parking_Activity extends AppCompatActivity {
         });
 
         zoneC.setOnClickListener(v -> {
-            Intent intent = new Intent(Empty_Parking_Activity.this, iot_test_Activity.class);
+            Intent intent = new Intent(Empty_Parking_Activity.this, ParkingZone_Detail_Activity.class);
             intent.putExtra("zone_id", "C");
             startActivity(intent);
         });

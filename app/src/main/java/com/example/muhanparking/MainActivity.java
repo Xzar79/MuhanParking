@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout disabledSpace = findViewById(R.id.disabled_space_layout);
 
         TextView normalText = normalSpace.findViewById(R.id.space_count);
-        TextView disabledText = disabledSpace.findViewById(R.id.space_count);
+        33TextView disabledText = disabledSpace.findViewById(R.id.space_count);
 
         normalText.setText(String.format("%d / %d", normalAvailable, normalTotal));
         disabledText.setText(String.format("%d / %d", disabledAvailable, disabledTotal));

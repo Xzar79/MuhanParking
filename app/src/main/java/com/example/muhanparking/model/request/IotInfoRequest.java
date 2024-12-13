@@ -4,7 +4,9 @@ public class IotInfoRequest {
     private int number;
     private boolean occupied;
 
-    // Constructor
+    public IotInfoRequest() {
+    }
+
     public IotInfoRequest(int number, boolean occupied) {
         this.number = number;
         this.occupied = occupied;
