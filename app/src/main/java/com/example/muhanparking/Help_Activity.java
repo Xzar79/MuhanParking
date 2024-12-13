@@ -28,7 +28,15 @@ public class Help_Activity extends AppCompatActivity {
         ImageView back = findViewById(R.id.back_arrow);
         ImageView help = findViewById(R.id.help);
 
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(Help_Activity.this, MainActivity.class);
+            startActivity(intent);
+        });
 
+        help.setOnClickListener(v -> {
+            Intent intent = new Intent(Help_Activity.this, MainActivity.class);
+            startActivity(intent);
+        });
 
 
 

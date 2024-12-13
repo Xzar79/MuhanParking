@@ -25,16 +25,15 @@ public class MainActivity extends AppCompatActivity {
         ImageView btnHome = findViewById(R.id.btn_home);
         ImageView btnParking = findViewById(R.id.btn_parking);
         ImageView btnMyInfo = findViewById(R.id.btn_myinfo);
+        ImageView btnHelp = findViewById(R.id.help);
 
         // 기타 버튼
         Button btnMore = findViewById(R.id.btn_more);
 
         // 텍스트뷰들 폰트 적용
         TextView textMyInfo = findViewById(R.id.text_my_info);
-        TextView carNum = findViewById(R.id.car_num);
 
         textMyInfo.setTypeface(pretendardBold);
-        carNum.setTypeface(pretendardMedium);
 
         // 네비게이션 바 클릭 이벤트 처리
         btnHome.setOnClickListener(v -> {
@@ -54,6 +53,11 @@ public class MainActivity extends AppCompatActivity {
 
         btnMore.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, Empty_Parking_Activity.class);
+            startActivity(intent);
+        });
+
+        btnHelp.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Help_Activity.class);
             startActivity(intent);
         });
     }

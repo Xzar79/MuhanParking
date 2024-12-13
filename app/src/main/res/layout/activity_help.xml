@@ -19,7 +19,8 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_back"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            app:tint="#FFFFFF" />
 
         <TextView
             android:id="@+id/help_title"
@@ -27,16 +28,19 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
-            android:fontFamily="@font/kotra_hope"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/pretendard_bold"
             android:text="도움말"
-            android:textSize="24sp" />
+            android:textSize="20sp"
+            android:textColor="#FFFFFF" />
 
         <ImageView
             android:id="@+id/help"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_help" />
+            android:src="@drawable/ic_help"
+            app:tint="#FFFFFF" />
 
     </RelativeLayout>
 
