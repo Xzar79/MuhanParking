@@ -1,8 +1,14 @@
 
 package com.example.muhanparking.api;
 
+import android.util.Log;
+
+import com.google.gson.GsonBuilder;
+
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Request;
+import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import okhttp3.OkHttpClient;
@@ -15,20 +21,41 @@ public class RetrofitClient {
 
     private RetrofitClient() {
         // 로깅 인터셉터 설정
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(message ->
+                Log.d("RetrofitClient", "API Call: " + message));
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         // OkHttpClient 설정
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
+                .addInterceptor(chain -> {
+                    Request request = chain.request();
+
+                    // 요청 로깅
+                    Log.d("RetrofitClient", "Sending request: " + request.url());
+                    Log.d("RetrofitClient", "Headers: " + request.headers());
+
+                    Response response = chain.proceed(request);
+
+                    // 응답 로깅
+                    if (response.body() != null) {
+                        Log.d("RetrofitClient", "Response code: " + response.code());
+                    }
+
+                    return response;
+                })
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
                 .build();
 
+
+
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder()
+                        .setLenient()
+                        .create()))
                 .client(client)
                 .build();
     }

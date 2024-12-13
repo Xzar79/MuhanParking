@@ -12,14 +12,5 @@ public interface IotApi {
             "Accept: application/json"
     })
     @GET("/api/v1/iot/info")
-    Call<BaseResponse<List<IotInfoRequest>>> getIotInfo();
-
-    @GET("/api/v1/{id}/status")
-    Call<BaseResponse<IotDevice>> getStatus(@Path("id") int id);
-
-    @PUT("/api/v1/{id}/status")
-    Call<BaseResponse<String>> updateStatus(
-            @Path("id") int id,
-            @Body IotStateRequest statusRequest
-    );
+    Call<BaseResponse<List<IotInfoRequest>>> getIotInfo(@Header("Device-ID") String deviceId);
 }
