@@ -67,7 +67,7 @@
                 android:id="@+id/car_1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_car_red"
+                android:src="@drawable/b_empty_car_img"
                 android:rotation="90"
                 android:layout_gravity="center" />
         </FrameLayout>
@@ -86,7 +86,7 @@
                 android:id="@+id/car_2"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_car_red"
+                android:src="@drawable/b_empty_car_img"
                 android:rotation="90"
                 android:layout_gravity="center" />
         </FrameLayout>
@@ -105,7 +105,7 @@
                 android:id="@+id/car_3"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_car_red"
+                android:src="@drawable/b_empty_car_img"
                 android:rotation="90"
                 android:layout_gravity="center" />
         </FrameLayout>
@@ -124,7 +124,7 @@
                 android:id="@+id/car_4"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_car_red"
+                android:src="@drawable/b_empty_car_img"
                 android:rotation="90"
                 android:layout_gravity="center" />
         </FrameLayout>
@@ -143,7 +143,7 @@
                 android:id="@+id/car_5"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_car_red"
+                android:src="@drawable/b_empty_car_img"
                 android:rotation="90"
                 android:layout_gravity="center" />
         </FrameLayout>
@@ -162,7 +162,7 @@
                 android:id="@+id/car_6"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_car_red"
+                android:src="@drawable/b_empty_car_img"
                 android:rotation="90"
                 android:layout_gravity="center" />
         </FrameLayout>
@@ -181,7 +181,7 @@
                 android:id="@+id/car_7"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_car_red"
+                android:src="@drawable/b_empty_car_img"
                 android:rotation="90"
                 android:layout_gravity="center" />
         </FrameLayout>
@@ -200,7 +200,7 @@
                 android:id="@+id/car_8"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_car_red"
+                android:src="@drawable/b_empty_car_img"
                 android:rotation="90"
                 android:layout_gravity="center" />
         </FrameLayout>
@@ -218,7 +218,7 @@
                 android:id="@+id/car_9"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_car_red"
+                android:src="@drawable/b_empty_car_img"
                 android:rotation="90"
                 android:layout_gravity="center" />
         </FrameLayout>
@@ -237,7 +237,7 @@
                 android:id="@+id/car_10"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_car_red"
+                android:src="@drawable/b_empty_car_img"
                 android:rotation="90"
                 android:layout_gravity="center" />
         </FrameLayout>
@@ -256,7 +256,7 @@
                 android:id="@+id/car_11"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_car_red"
+                android:src="@drawable/b_empty_car_img"
                 android:rotation="90"
                 android:layout_gravity="center" />
         </FrameLayout>

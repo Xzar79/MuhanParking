@@ -44,18 +44,25 @@ public class Section_Activity extends AppCompatActivity {
             return;
         }
 
+        deviceId = formatDeviceId(deviceId);
+        Log.d("Section_Activity", "Formatted device_id: " + deviceId);
+
+
         // deviceId에 따라 레이아웃 설정
         switch (deviceId) {
-            case "A1":
-            case "A2":
-                Log.d("Section_Activity", "Setting layout for section A");
+            case "IoT-A1":
+                Log.d("Section_Activity", "Setting layout for section A1");
                 setContentView(R.layout.activity_section_b);
                 break;
-            case "B":
+            case "IoT-A2":
+                Log.d("Section_Activity", "Setting layout for section A2");
+                setContentView(R.layout.activity_section_b);
+                break;
+            case "IoT-B":
                 Log.d("Section_Activity", "Setting layout for section B");
                 setContentView(R.layout.activity_section_b);
                 break;
-            case "C":
+            case "IoT-C":
                 Log.d("Section_Activity", "Setting layout for section C");
                 setContentView(R.layout.activity_section_c);
                 break;
@@ -69,6 +76,12 @@ public class Section_Activity extends AppCompatActivity {
         // 레이아웃 설정 후 뷰 초기화
         initializeViews();
         startRealtimeUpdates();
+    }
+    private String formatDeviceId(String originalId) {
+        if (originalId == null) return null;
+        if (originalId.startsWith("IoT-")) return originalId;  // 이미 포맷된 경우
+
+        return "IoT-" + originalId;
     }
     private void startRealtimeUpdates() {
         updateHandler = new Handler(Looper.getMainLooper());
@@ -113,16 +126,16 @@ public class Section_Activity extends AppCompatActivity {
 
         // 구역별 주차 공간 초기화
         switch (deviceId) {
-            case "A1":
+            case "IoT-A1":
                 initSectionA1Spots();
                 break;
-            case "A2":
+            case "IoT-A2":
                 initSectionA2Spots();
                 break;
-            case "B":
+            case "IoT-B":
                 initSectionBSpots();
                 break;
-            case "C":
+            case "IoT-C":
                 initSectionCSpots();
                 break;
         }
@@ -194,20 +207,19 @@ public class Section_Activity extends AppCompatActivity {
                     Log.d("Section_Activity", "Updating spot " + spot.getNumber() +
                             " occupied: " + spot.isOccupied());
 
-                    if (spot.isOccupied()) {
-                        parkingSpot.setImageResource(R.drawable.ic_car_red);
-                        Log.d("Section_Activity", "Setting RED for spot: " + spot.getNumber());
-                    } else {
-                        parkingSpot.setImageResource(R.drawable.b_empty_car_img);
-                        Log.d("Section_Activity", "Setting GREEN for spot: " + spot.getNumber());
-                    }
+                    // 이미지 리소스 설정을 더 명확하게
+                    int imageResource = spot.isOccupied() ?
+                            R.drawable.ic_car_red : R.drawable.b_empty_car_img;
+                    parkingSpot.setImageResource(imageResource);
 
-                    // 이미지뷰의 가시성 확인
-                    Log.d("Section_Activity", "ImageView visibility: " +
-                            (parkingSpot.getVisibility() == View.VISIBLE ? "VISIBLE" : "NOT_VISIBLE"));
+                    Log.d("Section_Activity", "Setting " +
+                            (spot.isOccupied() ? "RED" : "GREEN") +
+                            " for spot: " + spot.getNumber());
 
-                    // 강제로 이미지뷰 새로고침
+                    parkingSpot.setVisibility(View.VISIBLE);
                     parkingSpot.invalidate();
+                } else {
+                    Log.w("Section_Activity", "ImageView not found for spot: " + spot.getNumber());
                 }
             }
         });
