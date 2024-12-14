@@ -26,9 +26,8 @@
             android:name=".Section_C_Activity"
             android:exported="false" />
         <activity
-            android:name=".Section_Activity"
-            android:exported="false"
-            android:label="Section Activity" />
+            android:name=".Secssion_C_Activity"
+            android:exported="false" />
         <activity
             android:name=".Find_ID_Activity"
             android:exported="false" />
@@ -41,6 +40,7 @@
         <activity
             android:name=".Empty_Parking_Activity"
             android:exported="false" />
+        <activity android:name=".iot_test_Activity" />
         <activity
             android:name=".Mypage_Activity"
             android:exported="false" />

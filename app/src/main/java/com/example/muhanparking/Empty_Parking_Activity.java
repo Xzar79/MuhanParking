@@ -5,7 +5,6 @@ import static androidx.core.content.ContextCompat.startActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -29,35 +28,26 @@ public class Empty_Parking_Activity extends AppCompatActivity {
             finish();
         });
 
-        RelativeLayout zoneA = findViewById(R.id.zone_c);
+        RelativeLayout zoneA = findViewById(R.id.zone_a);
         RelativeLayout zoneB = findViewById(R.id.zone_b);
         RelativeLayout zoneC = findViewById(R.id.zone_c);
 
-        if (zoneA == null || zoneB == null || zoneC == null) {
-            Log.e("Empty_Parking", "Failed to find zone layouts");
-        }
-
         // 각 구역 클릭 리스너 설정
-// 클릭 리스너 부분을 다시 확인
-// 로그를 추가하여 데이터가 제대로 전달되는지 확인
         zoneA.setOnClickListener(v -> {
-            Intent intent = new Intent(Empty_Parking_Activity.this, Section_Activity.class);
-            intent.putExtra("device_id", "A1");
-            Log.d("Empty_Parking", "Starting Section_Activity with device_id: A1");
+            Intent intent = new Intent(Empty_Parking_Activity.this, Section_A_Activity.class);
+            intent.putExtra("zone_id", "A");
             startActivity(intent);
         });
 
         zoneB.setOnClickListener(v -> {
-            Intent intent = new Intent(Empty_Parking_Activity.this, Section_Activity.class);
-            intent.putExtra("device_id", "B");
-            Log.d("Empty_Parking", "Starting Section_Activity with device_id: B");
+            Intent intent = new Intent(Empty_Parking_Activity.this, Section_B_Activity.class);
+            intent.putExtra("zone_id", "B");
             startActivity(intent);
         });
 
         zoneC.setOnClickListener(v -> {
-            Intent intent = new Intent(Empty_Parking_Activity.this, Section_Activity.class);
-            intent.putExtra("device_id", "C");
-            Log.d("Empty_Parking", "Starting Section_Activity with device_id: C");
+            Intent intent = new Intent(Empty_Parking_Activity.this, Section_C_Activity.class);
+            intent.putExtra("zone_id", "C");
             startActivity(intent);
         });
     }

@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Section_A_Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#D3D3D3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@drawable/rounded_background">
+
+            <!-- 뒤로가기 -->
+            <ImageView
+                android:id="@+id/back_arrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back"
+                android:layout_alignParentStart="true"
+                app:tint="#FFFFFF"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A구역"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/pretendard_bold"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"/>
+
+            <ImageView
+                android:id="@+id/reload"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_reload"
+                app:tint="#FFFFFF" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end">
+
+                    <ImageView
+                        android:layout_width="115dp"
+                        android:layout_height="100dp"
+                        android:rotation="90"
+                        android:src="@drawable/not_strait_img"/>
+
+                    <ImageView
+                        android:layout_width="115dp"
+                        android:layout_height="100dp"
+                        android:rotation="90"
+                        android:rotationY="180"
+                        android:src="@drawable/right_curve_img"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/parkingline_1"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="5dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_1"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_2"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_2"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_3"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_3"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_4"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_4"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_5"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_5"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_6"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_6"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_7"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_7"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_8"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_8"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/parkingline_9"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="5dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_9"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:rotation="180"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_10"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_10"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:rotation="180"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_11"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_11"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:rotation="180"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_12"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_12"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:rotation="180"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_13"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_13"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:rotation="180"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_14"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_14"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:rotation="180"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_15"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_15"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:rotation="180"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/parkingline_16"
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_rectangle">
+
+                        <!-- 차 이미지 -->
+                        <ImageView
+                            android:id="@+id/car_16"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:rotation="180"
+                            android:src="@drawable/b_empty_car_img"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end">
+
+                    <ImageView
+                        android:layout_width="115dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="end"
+                        android:rotation="-90"
+                        android:src="@drawable/not_strait_img" />
+
+                    <ImageView
+                        android:layout_width="115dp"
+                        android:layout_height="100dp"
+                        android:rotation="90"
+                        android:rotationX="180"
+                        android:src="@drawable/right_curve_img"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="end">
+
+                <FrameLayout
+                    android:id="@+id/parkingline_27"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/border_rectangle">
+
+                    <!-- 차 이미지 -->
+                    <ImageView
+                        android:id="@+id/car_27"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/b_empty_car_img"
+                        android:rotation="-90"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/parkingline_28"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/border_rectangle">
+
+                    <!-- 차 이미지 -->
+                    <ImageView
+                        android:id="@+id/car_28"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/b_empty_car_img"
+                        android:rotation="-90"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/parkingline_29"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/border_rectangle">
+
+                    <!-- 차 이미지 -->
+                    <ImageView
+                        android:id="@+id/car_29"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/b_empty_car_img"
+                        android:rotation="-90"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/parkingline_30"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/border_rectangle">
+
+                    <!-- 차 이미지 -->
+                    <ImageView
+                        android:id="@+id/car_30"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/b_empty_car_img"
+                        android:rotation="-90"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/parkingline_31"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/border_rectangle">
+
+                    <!-- 차 이미지 -->
+                    <ImageView
+                        android:id="@+id/car_31"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/b_empty_car_img"
+                        android:rotation="-90"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/parkingline_32"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/border_rectangle">
+
+                    <!-- 차 이미지 -->
+                    <ImageView
+                        android:id="@+id/car_32"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/b_empty_car_img"
+                        android:rotation="-90"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/parkingline_33"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/border_rectangle">
+
+                    <!-- 차 이미지 -->
+                    <ImageView
+                        android:id="@+id/car_33"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/b_empty_car_img"
+                        android:rotation="-90"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/parkingline_34"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/border_rectangle">
+
+                    <!-- 차 이미지 -->
+                    <ImageView
+                        android:id="@+id/car_34"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/b_empty_car_img"
+                        android:rotation="-90"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/parkingline_35"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/border_rectangle">
+
+                    <!-- 차 이미지 -->
+                    <ImageView
+                        android:id="@+id/car_35"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/b_empty_car_img"
+                        android:rotation="-90"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/parkingline_17"
+                android:layout_width="40dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/border_rectangle">
+
+                <!-- 차 이미지 -->
+                <ImageView
+                    android:id="@+id/car_17"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:rotation="180"
+                    android:src="@drawable/b_empty_car_img"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/parkingline_18"
+                android:layout_width="40dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/border_rectangle">
+
+                <!-- 차 이미지 -->
+                <ImageView
+                    android:id="@+id/car_18"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:rotation="180"
+                    android:src="@drawable/b_empty_car_img"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/parkingline_19"
+                android:layout_width="40dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/border_rectangle">
+
+                <!-- 차 이미지 -->
+                <ImageView
+                    android:id="@+id/car_19"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:rotation="180"
+                    android:src="@drawable/b_empty_car_img"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/parkingline_20"
+                android:layout_width="40dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/border_rectangle">
+
+                <!-- 차 이미지 -->
+                <ImageView
+                    android:id="@+id/car_20"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:rotation="180"
+                    android:src="@drawable/b_empty_car_img"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/parkingline_21"
+                android:layout_width="40dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/border_rectangle">
+
+                <!-- 차 이미지 -->
+                <ImageView
+                    android:id="@+id/car_21"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:rotation="180"
+                    android:src="@drawable/b_empty_car_img"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/parkingline_22"
+                android:layout_width="40dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/border_rectangle">
+
+                <!-- 차 이미지 -->
+                <ImageView
+                    android:id="@+id/car_22"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:rotation="180"
+                    android:src="@drawable/b_empty_car_img"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/parkingline_23"
+                android:layout_width="40dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/border_rectangle">
+
+                <!-- 차 이미지 -->
+                <ImageView
+                    android:id="@+id/car_23"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:rotation="180"
+                    android:src="@drawable/b_empty_car_img"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/parkingline_24"
+                android:layout_width="40dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/border_rectangle">
+
+                <!-- 차 이미지 -->
+                <ImageView
+                    android:id="@+id/car_24"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:rotation="180"
+                    android:src="@drawable/b_empty_car_img"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/parkingline_25"
+                android:layout_width="40dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/border_rectangle">
+
+                <!-- 차 이미지 -->
+                <ImageView
+                    android:id="@+id/car_25"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:rotation="180"
+                    android:src="@drawable/b_empty_car_img"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/parkingline_26"
+                android:layout_width="40dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/border_rectangle">
+
+                <!-- 차 이미지 -->
+                <ImageView
+                    android:id="@+id/car_26"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:rotation="180"
+                    android:src="@drawable/b_empty_car_img"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/txt_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="일반 : 0 / 0"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="●"
+            android:textColor="#fa5252"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="사용 불가"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="●"
+            android:textColor="#4cfa4f"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="사용 가능"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
