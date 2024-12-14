@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -18,7 +19,8 @@
             android:padding="12dp"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_back"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            app:tint="#FFFFFF" />
     </RelativeLayout>
 
     <!-- 주차장 구역 레이아웃 -->
@@ -33,7 +35,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
 
             <!-- B구역 -->
             <RelativeLayout
@@ -42,17 +45,21 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                android:background="#E3F2FD"
                 android:clickable="true"
                 android:focusable="true">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/b_section_img" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="B구역"
-                    android:textColor="#FF0000"
-                    android:textSize="18sp"
-                    android:layout_margin="16dp"/>
+                    android:fontFamily="@font/pretendard_bold"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
             </RelativeLayout>
 
             <!-- A구역 -->
@@ -60,65 +67,50 @@
                 android:id="@+id/zone_a"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                android:background="#E8F5E9"
                 android:clickable="true"
                 android:focusable="true">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/a_section_img" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="A구역"
-                    android:textColor="#FF0000"
-                    android:textSize="18sp"
-                    android:layout_margin="16dp"/>
+                    android:fontFamily="@font/pretendard_bold"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
             </RelativeLayout>
         </LinearLayout>
 
         <!-- C구역 -->
         <RelativeLayout
             android:id="@+id/zone_c"
-            android:layout_width="140dp"
+            android:layout_width="100dp"
             android:layout_height="200dp"
             android:layout_marginTop="16dp"
-            android:background="#FFF3E0"
             android:clickable="true"
             android:focusable="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/c_section_img"
+                android:layout_marginTop="25dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="C구역"
-                android:textColor="#FF0000"
+                android:textColor="#000000"
+                android:fontFamily="@font/pretendard_bold"
                 android:textSize="18sp"
-                android:layout_margin="16dp"/>
+                />
         </RelativeLayout>
-    </LinearLayout>
-
-    <!-- 하단 정보 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:background="#FFFFFF">
-
-        <TextView
-            android:id="@+id/txt_normal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="일반 : 0 / 0"
-            android:textSize="16sp"/>
-
-        <TextView
-            android:id="@+id/txt_disabled"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="장애인 : 0 / 0"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"/>
-
     </LinearLayout>
 
 </LinearLayout>

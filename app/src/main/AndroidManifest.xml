@@ -20,13 +20,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Section_A_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Section_B_Activity"
             android:exported="false" />
         <activity
             android:name=".Section_C_Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Secssion_C_Activity"
             android:exported="false" />
         <activity
             android:name=".Find_ID_Activity"

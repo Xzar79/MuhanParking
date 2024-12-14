@@ -131,7 +131,7 @@
                         android:id="@+id/b_car_1"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/b_handicap_img"
+                        android:src="@drawable/b_empty_car_img"
                         android:layout_gravity="center" />
                 </FrameLayout>
 
@@ -150,7 +150,7 @@
                         android:id="@+id/b_car_2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/b_handicap_img"
+                        android:src="@drawable/b_empty_car_img"
                         android:layout_gravity="center" />
                 </FrameLayout>
 
@@ -210,7 +210,7 @@
                         android:id="@+id/car_4"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_car_red"
+                        android:src="@drawable/b_empty_car_img"
                         android:rotation="90"
                         android:layout_gravity="center" />
                 </FrameLayout>
@@ -229,7 +229,7 @@
                         android:id="@+id/car_5"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_car_red"
+                        android:src="@drawable/b_empty_car_img"
                         android:rotation="90"
                         android:layout_gravity="center" />
                 </FrameLayout>
@@ -248,7 +248,7 @@
                         android:id="@+id/car_6"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_car_red"
+                        android:src="@drawable/b_empty_car_img"
                         android:rotation="90"
                         android:layout_gravity="center" />
                 </FrameLayout>
@@ -267,7 +267,7 @@
                         android:id="@+id/car_7"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_car_red"
+                        android:src="@drawable/b_empty_car_img"
                         android:rotation="90"
                         android:layout_gravity="center" />
                 </FrameLayout>
@@ -286,7 +286,7 @@
                         android:id="@+id/car_8"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_car_red"
+                        android:src="@drawable/b_empty_car_img"
                         android:rotation="90"
                         android:layout_gravity="center" />
                 </FrameLayout>
@@ -305,7 +305,7 @@
                         android:id="@+id/car_9"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_car_red"
+                        android:src="@drawable/b_empty_car_img"
                         android:rotation="90"
                         android:layout_gravity="center" />
                 </FrameLayout>
@@ -339,7 +339,7 @@
                             android:id="@+id/car_10"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_car_red"
+                            android:src="@drawable/b_empty_car_img"
                             android:layout_gravity="center" />
                     </FrameLayout>
 
@@ -358,7 +358,7 @@
                             android:id="@+id/car_11"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_car_red"
+                            android:src="@drawable/b_empty_car_img"
                             android:layout_gravity="center" />
                     </FrameLayout>
 
@@ -377,7 +377,7 @@
                             android:id="@+id/car_12"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_car_red"
+                            android:src="@drawable/b_empty_car_img"
                             android:layout_gravity="center" />
                     </FrameLayout>
 
@@ -396,7 +396,7 @@
                             android:id="@+id/car_13"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_car_red"
+                            android:src="@drawable/b_empty_car_img"
                             android:layout_gravity="center" />
                     </FrameLayout>
 
@@ -416,7 +416,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_car_red" />
+                            android:src="@drawable/b_empty_car_img" />
                     </FrameLayout>
 
                     <FrameLayout
@@ -434,7 +434,7 @@
                             android:id="@+id/car_15"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_car_red"
+                            android:src="@drawable/b_empty_car_img"
                             android:layout_gravity="center" />
                     </FrameLayout>
 
@@ -453,7 +453,7 @@
                             android:id="@+id/car_16"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_car_red"
+                            android:src="@drawable/b_empty_car_img"
                             android:layout_gravity="center" />
                     </FrameLayout>
 
@@ -479,7 +479,7 @@
                             android:id="@+id/car_17"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_car_red"
+                            android:src="@drawable/b_empty_car_img"
                             android:layout_gravity="center" />
                     </FrameLayout>
 
@@ -497,7 +497,7 @@
                             android:id="@+id/car_18"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_car_red"
+                            android:src="@drawable/b_empty_car_img"
                             android:layout_gravity="center" />
                     </FrameLayout>
 
@@ -515,7 +515,7 @@
                             android:id="@+id/car_19"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_car_red"
+                            android:src="@drawable/b_empty_car_img"
                             android:layout_gravity="center" />
                     </FrameLayout>
 
@@ -533,7 +533,7 @@
                             android:id="@+id/car_20"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_car_red"
+                            android:src="@drawable/b_empty_car_img"
                             android:layout_gravity="center" />
                     </FrameLayout>
 
@@ -551,7 +551,7 @@
                             android:id="@+id/car_21"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_car_red"
+                            android:src="@drawable/b_empty_car_img"
                             android:layout_gravity="center" />
                     </FrameLayout>
 
@@ -569,7 +569,7 @@
                             android:id="@+id/car_22"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_car_red"
+                            android:src="@drawable/b_empty_car_img"
                             android:layout_gravity="center" />
                     </FrameLayout>
 
@@ -587,7 +587,7 @@
                             android:id="@+id/car_23"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_car_red"
+                            android:src="@drawable/b_empty_car_img"
                             android:layout_gravity="center" />
                     </FrameLayout>
 
@@ -707,7 +707,7 @@
                     android:id="@+id/b_car_3"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/b_handicap_img"
+                    android:src="@drawable/b_empty_car_img"
                     android:layout_gravity="center" />
             </FrameLayout>
 
@@ -725,7 +725,7 @@
                     android:id="@+id/b_car_4"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/b_handicap_img"
+                    android:src="@drawable/b_empty_car_img"
                     android:layout_gravity="center" />
             </FrameLayout>
 
