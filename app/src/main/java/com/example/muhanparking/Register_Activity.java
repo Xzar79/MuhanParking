@@ -122,12 +122,11 @@ public class Register_Activity extends AppCompatActivity {
                     }
 
                     int studentId = Integer.parseInt(studentIdStr);
-                    int department = Integer.parseInt(departmentStr);
 
                     // API 호출
                     SignUpRequest request = new SignUpRequest(
                             username, password, name, phone,
-                            address, gender, studentId, department, birthDate, email
+                            address, gender, studentId, departmentStr, birthDate, email
                     );
 
                     RetrofitClient.getInstance().getUserApi().signup(request)

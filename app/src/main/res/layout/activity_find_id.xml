@@ -55,19 +55,48 @@
                     android:textColor="#1A1A1A"
                     android:layout_marginBottom="20dp" />
 
+
+                <!-- 이름 입력 -->
                 <EditText
-                    android:id="@+id/email_input"
+                    android:id="@+id/name_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="example@domain.com"
+                    android:hint="이름"
                     android:textSize="16sp"
                     android:fontFamily="@font/pretendard_medium"
                     android:textColor="#1A1A1A"
                     android:backgroundTint="#014F9E"
-                    android:inputType="textEmailAddress"
+                    android:inputType="textPersonName"
                     android:padding="12dp"
                     android:layout_marginBottom="16dp" />
 
+                <!-- 학번 입력 -->
+                <EditText
+                    android:id="@+id/student_id_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="학번"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textColor="#1A1A1A"
+                    android:backgroundTint="#014F9E"
+                    android:inputType="number"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- 생년월일 입력 -->
+                <EditText
+                    android:id="@+id/birth_date_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="생년월일 (YYYY-MM-DD)"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:textColor="#1A1A1A"
+                    android:backgroundTint="#014F9E"
+                    android:inputType="date"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp" />
                 <!-- 아이디 찾기 버튼 -->
                 <Button
                     android:id="@+id/find_id_button"
@@ -79,6 +108,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:layout_marginBottom="20dp" />
+
 
                 <!-- 결과 표시 -->
                 <TextView
