@@ -88,7 +88,6 @@
                         android:id="@+id/parkingline_1"
                         android:layout_width="40dp"
                         android:layout_height="70dp"
-                        android:layout_marginStart="5dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -232,7 +231,6 @@
                         android:id="@+id/parkingline_9"
                         android:layout_width="40dp"
                         android:layout_height="70dp"
-                        android:layout_marginStart="5dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -404,12 +402,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_gravity="end">
+                android:gravity="end">
 
                 <FrameLayout
                     android:id="@+id/parkingline_27"
                     android:layout_width="60dp"
-                    android:layout_height="40dp"
+                    android:layout_height="38dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="20dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -420,8 +418,8 @@
                     <!-- 차 이미지 -->
                     <ImageView
                         android:id="@+id/car_27"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/b_empty_car_img"
                         android:rotation="-90"
                         android:layout_gravity="center" />
@@ -429,7 +427,7 @@
                 <FrameLayout
                     android:id="@+id/parkingline_28"
                     android:layout_width="60dp"
-                    android:layout_height="40dp"
+                    android:layout_height="38dp"
                     android:layout_marginStart="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -439,8 +437,8 @@
                     <!-- 차 이미지 -->
                     <ImageView
                         android:id="@+id/car_28"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/b_empty_car_img"
                         android:rotation="-90"
                         android:layout_gravity="center" />
@@ -448,7 +446,7 @@
                 <FrameLayout
                     android:id="@+id/parkingline_29"
                     android:layout_width="60dp"
-                    android:layout_height="40dp"
+                    android:layout_height="38dp"
                     android:layout_marginStart="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -458,8 +456,8 @@
                     <!-- 차 이미지 -->
                     <ImageView
                         android:id="@+id/car_29"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/b_empty_car_img"
                         android:rotation="-90"
                         android:layout_gravity="center" />
@@ -467,7 +465,7 @@
                 <FrameLayout
                     android:id="@+id/parkingline_30"
                     android:layout_width="60dp"
-                    android:layout_height="40dp"
+                    android:layout_height="38dp"
                     android:layout_marginStart="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -477,8 +475,8 @@
                     <!-- 차 이미지 -->
                     <ImageView
                         android:id="@+id/car_30"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/b_empty_car_img"
                         android:rotation="-90"
                         android:layout_gravity="center" />
@@ -486,7 +484,7 @@
                 <FrameLayout
                     android:id="@+id/parkingline_31"
                     android:layout_width="60dp"
-                    android:layout_height="40dp"
+                    android:layout_height="38dp"
                     android:layout_marginStart="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -496,8 +494,8 @@
                     <!-- 차 이미지 -->
                     <ImageView
                         android:id="@+id/car_31"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/b_empty_car_img"
                         android:rotation="-90"
                         android:layout_gravity="center" />
@@ -505,7 +503,7 @@
                 <FrameLayout
                     android:id="@+id/parkingline_32"
                     android:layout_width="60dp"
-                    android:layout_height="40dp"
+                    android:layout_height="38dp"
                     android:layout_marginStart="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -515,8 +513,8 @@
                     <!-- 차 이미지 -->
                     <ImageView
                         android:id="@+id/car_32"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/b_empty_car_img"
                         android:rotation="-90"
                         android:layout_gravity="center" />
@@ -524,7 +522,7 @@
                 <FrameLayout
                     android:id="@+id/parkingline_33"
                     android:layout_width="60dp"
-                    android:layout_height="40dp"
+                    android:layout_height="38dp"
                     android:layout_marginStart="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -534,8 +532,8 @@
                     <!-- 차 이미지 -->
                     <ImageView
                         android:id="@+id/car_33"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/b_empty_car_img"
                         android:rotation="-90"
                         android:layout_gravity="center" />
@@ -543,7 +541,7 @@
                 <FrameLayout
                     android:id="@+id/parkingline_34"
                     android:layout_width="60dp"
-                    android:layout_height="40dp"
+                    android:layout_height="38dp"
                     android:layout_marginStart="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -553,8 +551,8 @@
                     <!-- 차 이미지 -->
                     <ImageView
                         android:id="@+id/car_34"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/b_empty_car_img"
                         android:rotation="-90"
                         android:layout_gravity="center" />
@@ -562,7 +560,7 @@
                 <FrameLayout
                     android:id="@+id/parkingline_35"
                     android:layout_width="60dp"
-                    android:layout_height="40dp"
+                    android:layout_height="38dp"
                     android:layout_marginStart="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -572,8 +570,8 @@
                     <!-- 차 이미지 -->
                     <ImageView
                         android:id="@+id/car_35"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/b_empty_car_img"
                         android:rotation="-90"
                         android:layout_gravity="center" />
@@ -584,15 +582,15 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="end">
 
             <FrameLayout
                 android:id="@+id/parkingline_17"
-                android:layout_width="40dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="5dp"
+                android:layout_width="38dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -602,16 +600,16 @@
                 <!-- 차 이미지 -->
                 <ImageView
                     android:id="@+id/car_17"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
                     android:rotation="180"
-                    android:src="@drawable/b_empty_car_img"
-                    android:layout_gravity="center" />
+                    android:src="@drawable/b_empty_car_img" />
             </FrameLayout>
             <FrameLayout
                 android:id="@+id/parkingline_18"
-                android:layout_width="40dp"
-                android:layout_height="70dp"
+                android:layout_width="38dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -621,16 +619,16 @@
                 <!-- 차 이미지 -->
                 <ImageView
                     android:id="@+id/car_18"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:rotation="180"
                     android:src="@drawable/b_empty_car_img"
                     android:layout_gravity="center" />
             </FrameLayout>
             <FrameLayout
                 android:id="@+id/parkingline_19"
-                android:layout_width="40dp"
-                android:layout_height="70dp"
+                android:layout_width="38dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -640,16 +638,16 @@
                 <!-- 차 이미지 -->
                 <ImageView
                     android:id="@+id/car_19"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:rotation="180"
                     android:src="@drawable/b_empty_car_img"
                     android:layout_gravity="center" />
             </FrameLayout>
             <FrameLayout
                 android:id="@+id/parkingline_20"
-                android:layout_width="40dp"
-                android:layout_height="70dp"
+                android:layout_width="38dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -659,16 +657,16 @@
                 <!-- 차 이미지 -->
                 <ImageView
                     android:id="@+id/car_20"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:rotation="180"
                     android:src="@drawable/b_empty_car_img"
                     android:layout_gravity="center" />
             </FrameLayout>
             <FrameLayout
                 android:id="@+id/parkingline_21"
-                android:layout_width="40dp"
-                android:layout_height="70dp"
+                android:layout_width="38dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -678,16 +676,16 @@
                 <!-- 차 이미지 -->
                 <ImageView
                     android:id="@+id/car_21"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:rotation="180"
                     android:src="@drawable/b_empty_car_img"
                     android:layout_gravity="center" />
             </FrameLayout>
             <FrameLayout
                 android:id="@+id/parkingline_22"
-                android:layout_width="40dp"
-                android:layout_height="70dp"
+                android:layout_width="38dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -697,16 +695,16 @@
                 <!-- 차 이미지 -->
                 <ImageView
                     android:id="@+id/car_22"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:rotation="180"
                     android:src="@drawable/b_empty_car_img"
                     android:layout_gravity="center" />
             </FrameLayout>
             <FrameLayout
                 android:id="@+id/parkingline_23"
-                android:layout_width="40dp"
-                android:layout_height="70dp"
+                android:layout_width="38dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -716,16 +714,16 @@
                 <!-- 차 이미지 -->
                 <ImageView
                     android:id="@+id/car_23"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:rotation="180"
                     android:src="@drawable/b_empty_car_img"
                     android:layout_gravity="center" />
             </FrameLayout>
             <FrameLayout
                 android:id="@+id/parkingline_24"
-                android:layout_width="40dp"
-                android:layout_height="70dp"
+                android:layout_width="38dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -735,16 +733,16 @@
                 <!-- 차 이미지 -->
                 <ImageView
                     android:id="@+id/car_24"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:rotation="180"
                     android:src="@drawable/b_empty_car_img"
                     android:layout_gravity="center" />
             </FrameLayout>
             <FrameLayout
                 android:id="@+id/parkingline_25"
-                android:layout_width="40dp"
-                android:layout_height="70dp"
+                android:layout_width="38dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -754,16 +752,16 @@
                 <!-- 차 이미지 -->
                 <ImageView
                     android:id="@+id/car_25"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:rotation="180"
                     android:src="@drawable/b_empty_car_img"
                     android:layout_gravity="center" />
             </FrameLayout>
             <FrameLayout
                 android:id="@+id/parkingline_26"
-                android:layout_width="40dp"
-                android:layout_height="70dp"
+                android:layout_width="38dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -773,8 +771,8 @@
                 <!-- 차 이미지 -->
                 <ImageView
                     android:id="@+id/car_26"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:rotation="180"
                     android:src="@drawable/b_empty_car_img"
                     android:layout_gravity="center" />
