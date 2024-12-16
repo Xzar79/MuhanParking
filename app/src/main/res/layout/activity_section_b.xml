@@ -598,12 +598,6 @@
                     android:layout_marginTop="60dp">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="100dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/right_curve_img" />
-
-                    <ImageView
                         android:layout_width="143dp"
                         android:layout_height="84dp"
                         android:layout_alignParentEnd="true"
@@ -620,10 +614,17 @@
             android:orientation="horizontal"
             android:gravity="end">
 
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/right_curve_img" />
+
             <FrameLayout
                 android:id="@+id/parkingline_24"
                 android:layout_width="50dp"
                 android:layout_height="70dp"
+                android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -642,6 +643,7 @@
                 android:id="@+id/parkingline_25"
                 android:layout_width="50dp"
                 android:layout_height="70dp"
+                android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -660,6 +662,7 @@
                 android:id="@+id/parkingline_26"
                 android:layout_width="50dp"
                 android:layout_height="70dp"
+                android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -678,6 +681,7 @@
                 android:id="@+id/parkingline_27"
                 android:layout_width="50dp"
                 android:layout_height="70dp"
+                android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -696,6 +700,7 @@
                 android:id="@+id/b_parkingline_3"
                 android:layout_width="50dp"
                 android:layout_height="70dp"
+                android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -714,6 +719,7 @@
                 android:id="@+id/b_parkingline_4"
                 android:layout_width="50dp"
                 android:layout_height="70dp"
+                android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -745,6 +751,7 @@
             android:id="@+id/txt_normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:text="일반 : 0 / 0"
             android:textSize="15sp"/>
 
@@ -759,7 +766,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="30dp"
             android:text="●"
             android:textColor="#fa5252"/>
 
@@ -767,13 +774,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="사용 불가"
+            android:text="사용불가"
             android:textSize="15sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="17dp"
             android:text="●"
             android:textColor="#4cfa4f"/>
 
@@ -781,7 +788,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="사용 가능"
+            android:layout_gravity="end"
+            android:text="사용가능"
             android:textSize="15sp" />
 
     </LinearLayout>

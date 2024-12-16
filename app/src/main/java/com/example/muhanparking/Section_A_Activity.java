@@ -37,7 +37,7 @@ public class Section_A_Activity extends AppCompatActivity {
     // 주차 상태를 추적하기 위한 변수 추가
     private int occupiedCountA1 = 0;
     private int occupiedCountA2 = 0;
-    private final int totalSpotsA1 = 26; // A1 구역 주차구역 수
+    private final int totalSpotsA1 = 32; // A1 구역 주차구역 수
     private final int totalSpotsA2 = 8;  // A2 구역 주차우경 수
 
     @Override
