@@ -41,7 +41,7 @@ public class Parking_Location_Activity extends AppCompatActivity implements OnMa
         mMap = googleMap;
 
         // 가천대학교 AI공학관 위치
-        LatLng aiBuilding = new LatLng(37.455817, 127.133609);  // AI공학관의 실제 좌표
+        LatLng aiBuilding = new LatLng(37.455485, 127.133648);  // AI공학관의 실제 좌표
 
         // 기본 마커 추가
         MarkerOptions markerOptions = new MarkerOptions()

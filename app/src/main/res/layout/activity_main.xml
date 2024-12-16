@@ -62,17 +62,34 @@
                 android:orientation="vertical">
 
                 <!-- AI관 섹션 -->
-                <TextView
-                    android:id="@+id/text_section"
-                    android:layout_width="wrap_content"
+
+                <!-- AI관 섹션 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="AI관"
-                    android:fontFamily="@font/pretendard_bold"
-                    android:textSize="26sp"
-                    android:textColor="#1A1A1A"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="16dp"/>
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/text_section"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AI관"
+                        android:fontFamily="@font/pretendard_bold"
+                        android:textSize="26sp"
+                        android:textColor="#1A1A1A" />
+
+                    <ImageView
+                        android:id="@+id/reload"
+                        android:layout_width="16dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_reload" />
+
+                </LinearLayout>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/section_card_view"

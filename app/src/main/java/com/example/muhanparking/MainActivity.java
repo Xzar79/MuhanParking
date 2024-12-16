@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.core.content.res.ResourcesCompat;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView normalSpaceText;
 
     private int occupiedA1 = 0, totalA1 = 26;
-    private int occupiedA2 = 0, totalA2 = 8;
+    private int occupiedA2 = 0, totalA2 = 9;
     private int occupiedB = 0, totalB = 27;
     private int occupiedC = 0, totalC = 11;
 
@@ -52,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
 
         // help 버튼
         Button btnMore = findViewById(R.id.btn_more);
+        
+        //새로 고침 버튼
+        ImageView btnReload = findViewById(R.id.reload);
+        btnReload.setOnClickListener(v -> loadAllParkingStatus());
 
         // 텍스트뷰들 폰트 적용
         TextView textMyInfo = findViewById(R.id.text_my_info);
@@ -63,6 +69,12 @@ public class MainActivity extends AppCompatActivity {
 
         // 주기적 업데이트 시작
         startPeriodicUpdates();
+
+        // 새로고침 버튼 녠
+        btnReload.setOnClickListener(v -> {
+            loadAllParkingStatus();
+            Toast.makeText(MainActivity.this, "주차 현황이 업데이트되었습니다.", Toast.LENGTH_SHORT).show();
+        });
 
         // 네비게이션 바 클릭 이벤트 처리
         btnHome.setOnClickListener(v -> {
@@ -202,10 +214,12 @@ public class MainActivity extends AppCompatActivity {
         int totalOccupied = occupiedA1 + occupiedA2 + occupiedB + occupiedC;
         int totalSpots = totalA1 + totalA2 + totalB + totalC;
 
+        // UI 업데이트 - 주차된 차량 수 표시
         runOnUiThread(() -> {
-            normalSpaceText.setText(String.format("%d / %d", totalSpots - totalOccupied, totalSpots));
+            normalSpaceText.setText(String.format("%d / %d", totalOccupied, totalSpots));
         });
     }
+
 
     @Override
     protected void onDestroy() {

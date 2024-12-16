@@ -44,6 +44,12 @@ public class Section_C_Activity extends AppCompatActivity {
 
         initializeViews();
         startPeriodicUpdates();
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
     }
 
     private void initializeViews() {
@@ -57,8 +63,10 @@ public class Section_C_Activity extends AppCompatActivity {
 
         // 새로고침 버튼
         ImageView reload = findViewById(R.id.reload);
-        reload.setOnClickListener(v -> loadParkingStatus());
-
+        reload.setOnClickListener(v -> {
+            loadParkingStatus();
+            Toast.makeText(Section_C_Activity.this, "C구역 주차 현황이 업데이트되었습니다.", Toast.LENGTH_SHORT).show();
+        });
         // C구역 주차공간 초기화
         for (int i = 1; i <= 11; i++) {  // C구역은 11개
             int viewId = getResources().getIdentifier("car_" + i, "id", getPackageName());

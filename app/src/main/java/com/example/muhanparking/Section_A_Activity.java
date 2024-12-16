@@ -5,9 +5,13 @@ import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.widget.ImageView;
 import android.content.Intent;
 import android.widget.TextView;
@@ -44,8 +48,13 @@ public class Section_A_Activity extends AppCompatActivity {
 
         initializeViews();
         startPeriodicUpdates();
-    }
 
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+    }
     private void initializeViews() {
         // 뒤로가기 버튼
         ImageView back = findViewById(R.id.back_arrow);
@@ -60,19 +69,31 @@ public class Section_A_Activity extends AppCompatActivity {
         reload.setOnClickListener(v -> {
             loadParkingStatus("IoT-A1");
             loadParkingStatus("IoT-A2");
+            Toast.makeText(Section_A_Activity.this, "A구역 주차 현황이 업데이트되었습니다.", Toast.LENGTH_SHORT).show();
         });
-
 
         // A1 구역 주차공간 초기화 (1-26)
         for (int i = 1; i <= 26; i++) {
             int viewId = getResources().getIdentifier("car_" + i, "id", getPackageName());
-            parkingSpotsA1.put(i, findViewById(viewId));
+            ImageView spot = findViewById(viewId);
+            if (spot != null) {
+                parkingSpotsA1.put(i, spot);
+                Log.d("Section_A_Activity", "Initialized A1 parking spot " + i);
+            } else {
+                Log.e("Section_A_Activity", "Failed to find view for A1 spot " + i);
+            }
         }
 
-        // A2 구역 주차공간 초기화 (27-34)
-        for (int i = 26; i <= 33; i++) {
-            int viewId = getResources().getIdentifier("car_" + i, "id", getPackageName());
-            parkingSpotsA2.put(i, findViewById(viewId));
+        // A2 구역 주차공간 초기화 (1-9를 27-35에 매핑)
+        for (int i = 1; i <= 9; i++) {  // A2 구역은 1-9번
+            int viewId = getResources().getIdentifier("car_" + (i + 26), "id", getPackageName());
+            ImageView spot = findViewById(viewId);
+            if (spot != null) {
+                parkingSpotsA2.put(i, spot);
+                Log.d("Section_A_Activity", "Initialized A2 parking spot " + i);
+            } else {
+                Log.e("Section_A_Activity", "Failed to find view for A2 spot " + i);
+            }
         }
     }
 
@@ -101,9 +122,9 @@ public class Section_A_Activity extends AppCompatActivity {
                     public void onResponse(Call<BaseResponse<List<IotInfoRequest>>> call,
                                            Response<BaseResponse<List<IotInfoRequest>>> response) {
                         if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
-                            Map<Integer, ImageView> targetSpots =
-                                    deviceId.equals("IoT-A1") ? parkingSpotsA1 : parkingSpotsA2;
-                            updateParkingSpots(response.body().getData(), targetSpots, deviceId);
+                            List<IotInfoRequest> spots = response.body().getData();
+                            Log.d("Section_A_Activity", deviceId + " received " + spots.size() + " spots data");
+                            updateParkingSpots(spots, deviceId);
                         }
                     }
 
@@ -115,37 +136,56 @@ public class Section_A_Activity extends AppCompatActivity {
                 });
     }
 
-    private void updateParkingSpots(List<IotInfoRequest> spots, Map<Integer, ImageView> parkingSpots, String deviceId) {
+    private void updateParkingSpots(List<IotInfoRequest> spots, String deviceId) {
         runOnUiThread(() -> {
             int occupiedCount = 0;
+            Map<Integer, ImageView> targetSpots = deviceId.equals("IoT-A1") ? parkingSpotsA1 : parkingSpotsA2;
 
             for (IotInfoRequest spot : spots) {
-                ImageView parkingSpot = parkingSpots.get(spot.getNumber());
+                int spotNumber = spot.getNumber();
+
+                // A1 구역은 1-26, A2 구역은 1-9만 처리
+                if ((deviceId.equals("IoT-A1") && spotNumber > 26) ||
+                        (deviceId.equals("IoT-A2") && spotNumber > 9)) {
+                    continue;
+                }
+
+                ImageView parkingSpot = targetSpots.get(spotNumber);
                 if (parkingSpot != null) {
-                    int imageResource = spot.isOccupied() ?
+                    boolean isOccupied = spot.isOccupied();
+                    int imageResource = isOccupied ?
                             R.drawable.ic_car_red : R.drawable.b_empty_car_img;
                     parkingSpot.setImageResource(imageResource);
 
-                    if (spot.isOccupied()) {
+                    if (isOccupied) {
                         occupiedCount++;
                     }
+
+                    Log.d("Section_A_Activity",
+                            deviceId + " Updating spot " + spotNumber +
+                                    " occupied: " + isOccupied);
                 }
             }
 
-            // 주차량 전체 합 (a1,a2)
-            TextView txtNormal = findViewById(R.id.txt_normal);
-            int totalOccupied = 0;
-            int totalSpots = parkingSpotsA1.size() + parkingSpotsA2.size();
-
+            // 주차량 전체 합 업데이트
             if (deviceId.equals("IoT-A1")) {
-                totalOccupied = occupiedCount + getOccupiedCountA2();
+                occupiedCountA1 = occupiedCount;
             } else {
-                totalOccupied = getOccupiedCountA1() + occupiedCount;
+                occupiedCountA2 = occupiedCount;
             }
+
+            // UI 업데이트
+            TextView txtNormal = findViewById(R.id.txt_normal);
+            int totalOccupied = occupiedCountA1 + occupiedCountA2;
+            int totalSpots = 35;  // A1(26) + A2(9)
+
+            Log.d("Section_A_Activity", deviceId + " occupied: " + occupiedCount);
+            Log.d("Section_A_Activity", "Total occupied: " + totalOccupied + "/" + totalSpots);
 
             txtNormal.setText(String.format("일반 : %d / %d", totalOccupied, totalSpots));
         });
     }
+
 
     private int getOccupiedCountA1() {
         int count = 0;
