@@ -28,6 +28,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_back"
+                app:tint="#FFFFFF"
                 android:layout_alignParentStart="true"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -71,11 +72,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:text="김가천"
-                        android:fontFamily="@font/pretendard_medium"
                         android:textSize="24sp"
                         android:textColor="#1F2937"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/pretendard_medium"/>
 
                     <TextView
                         android:id="@+id/user_id"
@@ -83,10 +83,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:text="202411111"
-                        android:fontFamily="@font/pretendard_medium"
                         android:textColor="#1F2937"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:fontFamily="@font/pretendard_medium"/>
 
                     <TextView
                         android:id="@+id/user_major"
@@ -94,10 +93,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:text="컴퓨터공학과"
-                        android:fontFamily="@font/pretendard_medium"
                         android:textSize="20sp"
-                        android:textColor="#1F2937" />
+                        android:textColor="#1F2937"
+                        android:fontFamily="@font/pretendard_medium"/>
 
                     <TextView
                         android:id="@+id/user_email"
@@ -105,22 +103,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:text="Kimgachon@gachon.ac.kr"
-                        android:fontFamily="@font/pretendard_medium"
                         android:textSize="20sp"
-                        android:textColor="#1F2937" />
-
-                    <TextView
-                        android:id="@+id/user_car_number"
-                        android:layout_margin="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:text="123가 4567"
-                        android:fontFamily="@font/pretendard_medium"
-                        android:textSize="20sp"
-                        android:textColor="#1F2937" />
-
+                        android:textColor="#1F2937"
+                        android:fontFamily="@font/pretendard_medium"/>
 
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>

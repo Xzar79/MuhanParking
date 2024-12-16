@@ -9,12 +9,12 @@ public class SignUpRequest {
         private String address;
         private String gender;
         private Integer studentId;
-        private Integer department;
+        private String department;
         private String birthDate;
 
     public SignUpRequest(String username, String password, String name,
                          String phone, String address, String gender,
-                         Integer studentId, Integer department, String birthDate,
+                         Integer studentId, String department, String birthDate,
                          String email) {
         this.username = username;
         this.password = password;

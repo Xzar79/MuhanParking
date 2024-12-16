@@ -1,0 +1,21 @@
+[33m3c52c54[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge remote-tracking branch 'origin/master'
+[33m20d1913[m sulim-ui수정, iot추가
+[33m3be39fe[m sulim-ui수정, iot추가
+[33m3bf8928[m Merge branch 'master' of https://github.com/Xzar79/MuhanParking
+[33mce38166[m sulim-삭제
+[33ma6b83b3[m[33m ([m[1;31mupstream/master[m[33m)[m 디테일한 부분 수정
+[33mffbfad7[m sulim-정기주차 신청서
+[33m80f4313[m 아이디 찾기 페이지 추가
+[33m06f97f3[m Merge pull request #3 from k-sulim/master
+[33m6982887[m sulim-register,login test2
+[33m687df43[m Merge pull request #2 from k-sulim/master
+[33me181b6a[m sulim-register,login test
+[33m8f75814[m sulim-register,login test
+[33m6f7733b[m Activity 명 변경, 추가
+[33ma210074[m Activity 명 변경, 추가
+[33md6ba75d[m 수정 : 마이페이지, 시뮬레이션, 테마 등 추가 : 알림, 설정, 유저 정보 수정 등
+[33m2493eb5[m 지도 API, 마이페이지 내의 하단 버튼, 알림 페이지를 제외한 나머지 화면 완성.
+[33m95f78a9[m 마이페이지 기본 틀 구성
+[33m7e2faf2[m 정기주차 신청 페이지까지의 디테일 부분 수정. (폰트 적용, 회원가입 페이지의 버튼, 메인 페이지의 네비 바, 테두리 박스의 테두리 색상, 상단 바 색상 등)
+[33m09ed0aa[m first commit
+[33m104cdb9[m first commit

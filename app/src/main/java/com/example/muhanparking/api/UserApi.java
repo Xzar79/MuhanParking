@@ -1,9 +1,9 @@
-// api/UserApi.java
 package com.example.muhanparking.api;
 
 import retrofit2.Call;
 import retrofit2.http.POST;
 import retrofit2.http.DELETE;
+import retrofit2.http.GET;  // GET 추가
 import retrofit2.http.Body;
 import com.example.muhanparking.model.request.LoginRequest;
 import com.example.muhanparking.model.request.SignUpRequest;
@@ -12,6 +12,7 @@ import com.example.muhanparking.model.request.ResetPasswordRequest;
 import com.example.muhanparking.model.response.BaseResponse;
 import com.example.muhanparking.model.response.LoginResponse;
 import com.example.muhanparking.model.response.FindUsernameResponse;
+import com.example.muhanparking.model.response.UserProfileResponse;  // 추가
 
 public interface UserApi {
     @POST("api/v1/user/auth/signup")
@@ -28,4 +29,8 @@ public interface UserApi {
 
     @POST("api/v1/user/auth/reset-password")
     Call<BaseResponse<Void>> resetPassword(@Body ResetPasswordRequest request);
+
+
+    @GET("api/v1/user/profile")
+    Call<BaseResponse<UserProfileResponse>> getUserProfile();
 }

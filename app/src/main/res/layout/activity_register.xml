@@ -23,7 +23,8 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_back"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            app:tint="#FFFFFF" />
     </RelativeLayout>
 
     <!-- 회원가입 폼을 포함한 ScrollView -->
@@ -90,6 +91,7 @@
                 android:id="@+id/ctDepartment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:hint="학과"
                 android:layout_marginBottom="16dp"/>
 

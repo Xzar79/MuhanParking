@@ -111,6 +111,32 @@
                 android:textSize="18sp"
                 />
         </RelativeLayout>
+
+        <!-- 하단 정보 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:id="@+id/txt_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="일반 : 0 / 0"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/txt_disabled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="장애인 : 0 / 0"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>
