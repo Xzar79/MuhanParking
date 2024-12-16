@@ -43,10 +43,10 @@
 
         <!-- 입력 필드들 -->
         <EditText
-            android:id="@+id/edit_user_address"
+            android:id="@+id/edit_user_Phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="주소"
+            android:hint="핸드폰번호"
             android:textSize="16sp"
             android:fontFamily="@font/pretendard_medium"
             android:backgroundTint="#014f9e"
@@ -54,7 +54,7 @@
             android:layout_marginBottom="24dp"/>
 
         <EditText
-            android:id="@+id/edit_user_major"
+            android:id="@+id/edit_user_department"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="학과"
