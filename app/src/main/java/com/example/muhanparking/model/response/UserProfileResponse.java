@@ -1,6 +1,8 @@
 package com.example.muhanparking.model.response;
 
 
+import android.provider.ContactsContract;
+
 public class UserProfileResponse {
     private String name;
     private String email;
@@ -12,5 +14,8 @@ public class UserProfileResponse {
     public String getEmail() { return email; }
     public Integer getStudentId() { return studentId; }
     public String getDepartment() { return department; }
+
+
+
 }
 

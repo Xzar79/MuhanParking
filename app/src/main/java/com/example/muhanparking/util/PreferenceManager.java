@@ -4,11 +4,18 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.example.muhanparking.Mypage_Activity;
+import com.example.muhanparking.User_Edit_Activity;
 
 public class PreferenceManager {
     private static final String PREF_NAME = "MuhanParkingPrefs";
     private static final String KEY_TOKEN = "jwt_token";
     private static final String KEY_USERNAME = "username";
+
+    private SharedPreferences sharedPreferences;
+    public PreferenceManager(Context context) {
+        sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+    }
+
 
     private static SharedPreferences getSharedPreferences(Context context) {
         return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
@@ -52,7 +59,20 @@ public class PreferenceManager {
         editor.apply();
     }
 
+    // 문자열 값 저장
+    public void putString(String key, String value) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
+
+    // 문자열 값 가져오기
+    public String getString(String key, String defaultValue) {
+        return sharedPreferences.getString(key, defaultValue);
+    }
+
     public static void clearUsername(Mypage_Activity mypageActivity) {
 
     }
+
 }
