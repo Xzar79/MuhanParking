@@ -37,7 +37,7 @@ public class Section_A_Activity extends AppCompatActivity {
     // 주차 상태를 추적하기 위한 변수 추가
     private int occupiedCountA1 = 0;
     private int occupiedCountA2 = 0;
-    private final int totalSpotsA1 = 26; // A1 구역 주차구역 수
+    private final int totalSpotsA1 = 41; // A1 구역 주차구역 수
     private final int totalSpotsA2 = 8;  // A2 구역 주차우경 수
 
     @Override
@@ -78,9 +78,8 @@ public class Section_A_Activity extends AppCompatActivity {
             ImageView spot = findViewById(viewId);
             if (spot != null) {
                 parkingSpotsA1.put(i, spot);
-                Log.d("Section_A_Activity", "Initialized A1 parking spot " + i);
-            } else {
-                Log.e("Section_A_Activity", "Failed to find view for A1 spot " + i);
+                // 단순한 로그
+                Log.d("Section_A", "A1 spot " + i + " 초기화");
             }
         }
 
@@ -97,14 +96,12 @@ public class Section_A_Activity extends AppCompatActivity {
         }
     }
 
+
     private void startPeriodicUpdates() {
         updateHandler = new Handler(Looper.getMainLooper());
-
-        // 초기 데이터 로드
         loadParkingStatus("IoT-A1");
         loadParkingStatus("IoT-A2");
 
-        // 주기적 업데이트
         updateHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -121,17 +118,15 @@ public class Section_A_Activity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<BaseResponse<List<IotInfoRequest>>> call,
                                            Response<BaseResponse<List<IotInfoRequest>>> response) {
-                        if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
-                            List<IotInfoRequest> spots = response.body().getData();
-                            Log.d("Section_A_Activity", deviceId + " received " + spots.size() + " spots data");
-                            updateParkingSpots(spots, deviceId);
+                        if (response.isSuccessful() && response.body() != null) {
+                            updateParkingSpots(response.body().getData(), deviceId);
                         }
                     }
 
                     @Override
                     public void onFailure(Call<BaseResponse<List<IotInfoRequest>>> call, Throwable t) {
                         Toast.makeText(Section_A_Activity.this,
-                                deviceId + " 데이터 로드 실패", Toast.LENGTH_SHORT).show();
+                                "업데이트 실패", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

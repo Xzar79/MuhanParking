@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int UPDATE_INTERVAL = 60000; // 1분
     private TextView normalSpaceText;
 
-    private int occupiedA1 = 0, totalA1 = 26;
+    private int occupiedA1 = 0, totalA1 = 32;
     private int occupiedA2 = 0, totalA2 = 9;
     private int occupiedB = 0, totalB = 27;
     private int occupiedC = 0, totalC = 11;
