@@ -83,8 +83,8 @@ public class Section_C_Activity extends AppCompatActivity {
     private void startPeriodicUpdates() {
         updateHandler = new Handler(Looper.getMainLooper());
         // 초기 데이터 로드
+        loadParkingStatus(DEVICE_ID);
         loadParkingStatus("IoT-C");
-
         // 주기적 업데이트 시작
         updateHandler.postDelayed(new Runnable() {
             @Override

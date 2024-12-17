@@ -9,7 +9,6 @@ public class UserProfileResponse {
     private Integer studentId;
     private String department;
 
-    // Getters
     public String getName() { return name; }
     public String getEmail() { return email; }
     public Integer getStudentId() { return studentId; }

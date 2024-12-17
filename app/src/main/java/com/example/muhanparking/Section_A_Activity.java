@@ -37,8 +37,8 @@ public class Section_A_Activity extends AppCompatActivity {
     // 주차 상태를 추적하기 위한 변수 추가
     private int occupiedCountA1 = 0;
     private int occupiedCountA2 = 0;
-    private final int totalSpotsA1 = 26; // A1 구역 주차구역 수
-    private final int totalSpotsA2 = 8;  // A2 구역 주차우경 수
+    private final int totalSpotsA1 = 32; // A1 구역 주차구역 수
+    private final int totalSpotsA2 = 9;  // A2 구역 주차우경 수
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class Section_A_Activity extends AppCompatActivity {
         });
 
         // A1 구역 주차공간 초기화 (1-26)
-        for (int i = 1; i <= 26; i++) {
+        for (int i = 1; i <= 32; i++) {
             int viewId = getResources().getIdentifier("car_" + i, "id", getPackageName());
             ImageView spot = findViewById(viewId);
             if (spot != null) {
@@ -86,7 +86,7 @@ public class Section_A_Activity extends AppCompatActivity {
 
         // A2 구역 주차공간 초기화 (1-9를 27-35에 매핑)
         for (int i = 1; i <= 9; i++) {  // A2 구역은 1-9번
-            int viewId = getResources().getIdentifier("car_" + (i + 26), "id", getPackageName());
+            int viewId = getResources().getIdentifier("car_" + (i + 32), "id", getPackageName());
             ImageView spot = findViewById(viewId);
             if (spot != null) {
                 parkingSpotsA2.put(i, spot);
@@ -145,7 +145,7 @@ public class Section_A_Activity extends AppCompatActivity {
                 int spotNumber = spot.getNumber();
 
                 // A1 구역은 1-26, A2 구역은 1-9만 처리
-                if ((deviceId.equals("IoT-A1") && spotNumber > 26) ||
+                if ((deviceId.equals("IoT-A1") && spotNumber > 32) ||
                         (deviceId.equals("IoT-A2") && spotNumber > 9)) {
                     continue;
                 }
@@ -177,7 +177,7 @@ public class Section_A_Activity extends AppCompatActivity {
             // UI 업데이트
             TextView txtNormal = findViewById(R.id.txt_normal);
             int totalOccupied = occupiedCountA1 + occupiedCountA2;
-            int totalSpots = 35;  // A1(26) + A2(9)
+            int totalSpots = 41;  // A1(26) + A2(9)
 
             Log.d("Section_A_Activity", deviceId + " occupied: " + occupiedCount);
             Log.d("Section_A_Activity", "Total occupied: " + totalOccupied + "/" + totalSpots);
