@@ -30,6 +30,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     private Handler updateHandler;
     private static final int UPDATE_INTERVAL = 60000; // 1분
+    private TextView normalSpaceText;  // 일반 주차공간 TextView
     private TextView disabledSpaceText;  // 장애인 주차공간 TextView 추가
 
 
@@ -63,11 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
         // 텍스트뷰들 폰트 적용
         TextView textMyInfo = findViewById(R.id.text_my_info);
-
         textMyInfo.setTypeface(pretendardBold);
 
         // 주차공간 TextView 초기화
-        disabledSpaceText = findViewById(R.id.normal_space_text);
+        normalSpaceText = findViewById(R.id.normal_space_text);
+        disabledSpaceText = findViewById(R.id.disabled_space_text);
 
         // 주기적 업데이트 시작
         startPeriodicUpdates();
@@ -187,7 +188,25 @@ public class MainActivity extends AppCompatActivity {
                         // 에러 처리
                     }
                 });
-    }
+
+
+    // D 구역(장애인) 데이터 로드
+        RetrofitClient.getInstance().getApi().getIotInfo("IoT-D")
+                .enqueue(new Callback<BaseResponse<List<IotInfoRequest>>>() {
+        @Override
+        public void onResponse(Call<BaseResponse<List<IotInfoRequest>>> call,
+                Response<BaseResponse<List<IotInfoRequest>>> response) {
+            if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
+                updateTotalCount("D", response.body().getData());
+            }
+        }
+
+        @Override
+        public void onFailure(Call<BaseResponse<List<IotInfoRequest>>> call, Throwable t) {
+            // 에러 처리
+        }
+    });
+}
     private void updateTotalCount(String section, List<IotInfoRequest> spots) {
         int occupied = 0;
         for (IotInfoRequest spot : spots) {
@@ -196,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // 각 구역별 주차량 업데이트
+     // 각 구역별 주차량 업데이트
         switch (section) {
             case "A1":
                 occupiedA1 = occupied;
@@ -210,15 +229,22 @@ public class MainActivity extends AppCompatActivity {
             case "C":
                 occupiedC = occupied;
                 break;
+            case "D":
+                occupiedD = occupied;
+                break;
         }
 
-        // 전체 합계 계산
-        int totalOccupied = occupiedA1 + occupiedA2 + occupiedB + occupiedC;
-        int totalSpots = totalA1 + totalA2 + totalB + totalC;
+        // 일반 구역 합계 계산
+        int totalNormalOccupied = occupiedA1 + occupiedA2 + occupiedB + occupiedC;
+        int totalNormalSpots = totalA1 + totalA2 + totalB + totalC;
 
-        // UI 업데이트 - 주차된 차량 수 표시
+        // UI 업데이트
         runOnUiThread(() -> {
-            disabledSpaceText.setText(String.format("%d / %d", totalOccupied, totalSpots));
+            // 일반 주차 구역 현황 업데이트
+            normalSpaceText.setText(String.format("%d / %d", totalNormalOccupied, totalNormalSpots));
+
+            // 장애인 주차 구역 현황 업데이트
+            disabledSpaceText.setText(String.format("%d / %d", occupiedD, totalD));
         });
     }
 
