@@ -24,7 +24,7 @@
             android:src="@drawable/parking_logo" />
 
         <EditText
-            android:id="@+id/etId"
+            android:id="@+id/Id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -36,7 +36,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/etPassword"
+            android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"

@@ -36,16 +36,16 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
-        EditText etId = findViewById(R.id.etId);
-        EditText etPassword = findViewById(R.id.etPassword);
+        EditText Id = findViewById(R.id.Id);
+        EditText Password = findViewById(R.id.Password);
         Button btnLogin = findViewById(R.id.btnLogin);
         Button btnRegister = findViewById(R.id.btnRegister);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = etId.getText().toString();
-                String password = etPassword.getText().toString();
+                String username = Id.getText().toString();
+                String password = Password.getText().toString();
 
                 if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
                     Toast.makeText(LoginActivity.this, "모든 필드를 입력해주세요.", Toast.LENGTH_SHORT).show();
@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call<BaseResponse<LoginResponse>> call, Throwable t) {
-                                Toast.makeText(LoginActivity.this, "네트워크 오류", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
                             }
                         });
             }

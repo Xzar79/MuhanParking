@@ -4,7 +4,7 @@ import retrofit2.Call;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.DELETE;
-import retrofit2.http.GET;  // GET 추가
+import retrofit2.http.GET;
 import retrofit2.http.Body;
 import retrofit2.http.PUT;
 
@@ -17,7 +17,7 @@ import com.example.muhanparking.model.response.BaseResponse;
 import com.example.muhanparking.model.response.LoginResponse;
 import com.example.muhanparking.model.response.FindUsernameResponse;
 import com.example.muhanparking.model.response.UpdateUserResponse;
-import com.example.muhanparking.model.response.UserProfileResponse;  // 추가
+import com.example.muhanparking.model.response.UserProfileResponse;
 
 public interface UserApi {
     @POST("api/v1/user/auth/signup")

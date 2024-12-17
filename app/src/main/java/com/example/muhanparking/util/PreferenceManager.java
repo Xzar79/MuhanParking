@@ -33,7 +33,7 @@ public class PreferenceManager {
         return getSharedPreferences(context).getString(KEY_TOKEN, null);
     }
 
-    // 토큰 삭제 (로그아웃 시 사용)
+    // 토큰 삭제 (로그아웃 시)
     public static void clearToken(Context context) {
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.remove(KEY_TOKEN);
@@ -70,7 +70,7 @@ public class PreferenceManager {
     public String getString(String key, String defaultValue) {
         return sharedPreferences.getString(key, defaultValue);
     }
-
+    //탈퇴
     public static void clearUsername(Mypage_Activity mypageActivity) {
 
     }

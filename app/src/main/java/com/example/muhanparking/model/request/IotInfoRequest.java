@@ -4,7 +4,7 @@ import java.util.List;
 
 public class IotInfoRequest {
     private int number;
-    private List<List<Integer>> points;  // 좌표 데이터 추가
+    private List<List<Integer>> points;  // 좌표 데이터
     private boolean occupied;
 
     public IotInfoRequest() {
@@ -16,7 +16,6 @@ public class IotInfoRequest {
         this.occupied = occupied;
     }
 
-    // Getters and Setters
     public int getNumber() {
         return number;
     }

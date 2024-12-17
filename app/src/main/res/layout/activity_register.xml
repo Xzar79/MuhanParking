@@ -44,7 +44,7 @@
             android:gravity="center">
 
             <EditText
-                android:id="@+id/ctId"
+                android:id="@+id/Id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="ID"
@@ -55,7 +55,7 @@
                 android:layout_marginBottom="16dp"/>
 
             <EditText
-                android:id="@+id/ctEmail"
+                android:id="@+id/Email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
@@ -63,7 +63,7 @@
                 android:layout_marginBottom="16dp" />
 
             <EditText
-                android:id="@+id/ctPassword"
+                android:id="@+id/Password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
@@ -71,7 +71,7 @@
                 android:layout_marginBottom="16dp" />
 
             <EditText
-                android:id="@+id/ctPassword2"
+                android:id="@+id/Password2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password again"
@@ -80,7 +80,7 @@
 
             <!-- 학번 입력 -->
             <EditText
-                android:id="@+id/ctStudentId"
+                android:id="@+id/StudentId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="학번"
@@ -88,7 +88,7 @@
 
             <!-- 학과 입력 -->
             <EditText
-                android:id="@+id/ctDepartment"
+                android:id="@+id/Department"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -97,7 +97,7 @@
 
             <!-- 이름 입력 -->
             <EditText
-                android:id="@+id/ctName"
+                android:id="@+id/Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="이름"
@@ -105,14 +105,14 @@
 
             <!-- 성별 입력 -->
             <Spinner
-                android:id="@+id/ctGender"
+                android:id="@+id/Gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"/>
 
             <!-- 전화번호 입력 -->
             <EditText
-                android:id="@+id/ctPhone"
+                android:id="@+id/Phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="전화번호"
@@ -121,7 +121,7 @@
 
             <!-- 주소 입력 -->
             <EditText
-                android:id="@+id/ctAddress"
+                android:id="@+id/Address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="주소"
@@ -131,7 +131,7 @@
 
             <!-- 생년월일 입력 -->
             <EditText
-                android:id="@+id/ctBirthDate"
+                android:id="@+id/BirthDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="생일 (YYYY-MM-DD)"

@@ -1,17 +1,14 @@
 package com.example.muhanparking;
 
 import android.os.Bundle;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.content.Intent;
 import android.widget.TextView;
@@ -29,12 +26,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-// Section_B_Activity.java
 public class Section_B_Activity extends AppCompatActivity {
-    private final Map<Integer, ImageView> parkingSpots = new HashMap<>();
-    private static final String DEVICE_ID = "IoT-B";
+    private final Map<Integer, ImageView> parkingSpotsB = new HashMap<>();
+    private final Map<Integer, ImageView> parkingSpotsD = new HashMap<>();
     private Handler updateHandler;
     private static final int UPDATE_INTERVAL = 60000; // 1분
+
+    // 주차 상태를 추적하기 위한 변수 추가
+    private int occupiedCountB = 0;
+    private int occupiedCountD = 0;
+    private final int totalSpotsB = 27; // B 구역 주차구역 수
+    private final int totalSpotsD = 4;  // D 구역 주차구역 수 (장애인)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,90 +66,125 @@ public class Section_B_Activity extends AppCompatActivity {
         // 새로고침 버튼
         ImageView reload = findViewById(R.id.reload);
         reload.setOnClickListener(v -> {
-            loadParkingStatus();
+            loadParkingStatus("IoT-B");
+            loadParkingStatus("IoT-D");
             Toast.makeText(Section_B_Activity.this, "B구역 주차 현황이 업데이트되었습니다.", Toast.LENGTH_SHORT).show();
         });
-        // B구역 주차공간 초기화
+
+        // 일반 주차구역 초기화 (1-27)
         for (int i = 1; i <= 27; i++) {
             int viewId = getResources().getIdentifier("car_" + i, "id", getPackageName());
             ImageView spot = findViewById(viewId);
             if (spot != null) {
-                parkingSpots.put(i, spot);
-                Log.d("Section_B_Activity", "Initialized parking spot " + i);
+                parkingSpotsB.put(i, spot);
+                Log.d("Section_B_Activity", "Initialized normal parking spot " + i);
             } else {
-                Log.e("Section_B_Activity", "Failed to find view for spot " + i);
+                Log.e("Section_B_Activity", "Failed to find view for normal spot " + i);
+            }
+        }
+
+        // 장애인 주차구역 초기화 (1-4)
+        for (int i = 1; i <= 4; i++) {
+            int viewId = getResources().getIdentifier("b_car_" + i, "id", getPackageName());
+            ImageView spot = findViewById(viewId);
+            if (spot != null) {
+                parkingSpotsD.put(i, spot);
+                Log.d("Section_B_Activity", "Initialized disabled parking spot " + i);
+            } else {
+                Log.e("Section_B_Activity", "Failed to find view for disabled spot " + i);
             }
         }
     }
 
     private void startPeriodicUpdates() {
         updateHandler = new Handler(Looper.getMainLooper());
-        // 초기 데이터 로드
-        loadParkingStatus();
 
-        // 주기적 업데이트 시작
+        // 초기 데이터 로드
+        loadParkingStatus("IoT-B");
+        loadParkingStatus("IoT-D");
+
+        // 주기적 업데이트
         updateHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                loadParkingStatus();
+                loadParkingStatus("IoT-B");
+                loadParkingStatus("IoT-D");
                 updateHandler.postDelayed(this, UPDATE_INTERVAL);
             }
         }, UPDATE_INTERVAL);
     }
 
-    private void loadParkingStatus() {
-        RetrofitClient.getInstance().getApi().getIotInfo(DEVICE_ID)
+    private void loadParkingStatus(String deviceId) {
+        RetrofitClient.getInstance().getApi().getIotInfo(deviceId)
                 .enqueue(new Callback<BaseResponse<List<IotInfoRequest>>>() {
                     @Override
                     public void onResponse(Call<BaseResponse<List<IotInfoRequest>>> call,
                                            Response<BaseResponse<List<IotInfoRequest>>> response) {
                         if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
-                            updateParkingSpots(response.body().getData());
+                            List<IotInfoRequest> spots = response.body().getData();
+                            Log.d("Section_B_Activity", deviceId + " received " + spots.size() + " spots data");
+                            updateParkingSpots(spots, deviceId);
                         }
                     }
 
                     @Override
                     public void onFailure(Call<BaseResponse<List<IotInfoRequest>>> call, Throwable t) {
-                        // 에러 처리
                         Toast.makeText(Section_B_Activity.this,
-                                "데이터 로드 실패", Toast.LENGTH_SHORT).show();
+                                deviceId + " 데이터 로드 실패", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
-    private void updateParkingSpots(List<IotInfoRequest> spots) {
+    private void updateParkingSpots(List<IotInfoRequest> spots, String deviceId) {
         runOnUiThread(() -> {
             int occupiedCount = 0;
-            int totalSpots = parkingSpots.size();
+            Map<Integer, ImageView> targetSpots = deviceId.equals("IoT-B") ? parkingSpotsB : parkingSpotsD;
+            int maxSpots = deviceId.equals("IoT-B") ? totalSpotsB : totalSpotsD;
 
             for (IotInfoRequest spot : spots) {
-                ImageView parkingSpot = parkingSpots.get(spot.getNumber());
+                int spotNumber = spot.getNumber();
+
+                if (spotNumber > maxSpots) {
+                    continue;
+                }
+
+                ImageView parkingSpot = targetSpots.get(spotNumber);
                 if (parkingSpot != null) {
-                    int imageResource = spot.isOccupied() ?
+                    boolean isOccupied = spot.isOccupied();
+                    int imageResource = isOccupied ?
                             R.drawable.ic_car_red : R.drawable.b_empty_car_img;
                     parkingSpot.setImageResource(imageResource);
 
-                    if (spot.isOccupied()) {
+                    if (isOccupied) {
                         occupiedCount++;
                     }
 
-                    // 디버깅용 로그 추가
                     Log.d("Section_B_Activity",
-                            "Updating spot " + spot.getNumber() +
-                                    " occupied: " + spot.isOccupied());
-                } else {
-                    Log.e("Section_B_Activity",
-                            "No ImageView found for spot " + spot.getNumber());
+                            deviceId + " Updating spot " + spotNumber +
+                                    " occupied: " + isOccupied);
                 }
             }
 
-            // 주차량
+            // 주차량 업데이트
+            if (deviceId.equals("IoT-B")) {
+                occupiedCountB = occupiedCount;
+            } else {
+                occupiedCountD = occupiedCount;
+            }
+
+            // UI 업데이트
             TextView txtNormal = findViewById(R.id.txt_normal);
-            txtNormal.setText(String.format("일반 : %d / %d", occupiedCount, totalSpots));
-            Log.d("Section_B_Activity", "Total occupied: " + occupiedCount + "/" + totalSpots);
+            TextView txtDisabled = findViewById(R.id.txt_disabled);
+
+            txtNormal.setText(String.format("일반 : %d / %d", occupiedCountB, totalSpotsB));
+            txtDisabled.setText(String.format("장애인 : %d / %d", occupiedCountD, totalSpotsD));
+
+            Log.d("Section_B_Activity", deviceId + " occupied: " + occupiedCount);
+            Log.d("Section_B_Activity",
+                    String.format("Total occupied - Normal: %d/%d, Disabled: %d/%d",
+                            occupiedCountB, totalSpotsB, occupiedCountD, totalSpotsD));
         });
     }
-
 
     @Override
     protected void onDestroy() {

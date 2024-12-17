@@ -43,7 +43,7 @@ public class Register_Activity extends AppCompatActivity {
         });
 
         /* 성별 스피너 */
-        Spinner spinnerGender = findViewById(R.id.ctGender);
+        Spinner spinnerGender = findViewById(R.id.Gender);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.gender_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -61,16 +61,16 @@ public class Register_Activity extends AppCompatActivity {
         });
 
         /* 이메일, 비밀번호 등 */
-        EditText ctEmail = findViewById(R.id.ctEmail);
-        EditText ctId = findViewById(R.id.ctId);
-        EditText ctPassword = findViewById(R.id.ctPassword);
-        EditText ctPassword2 = findViewById(R.id.ctPassword2);
-        EditText ctName = findViewById(R.id.ctName);
-        EditText ctPhone = findViewById(R.id.ctPhone);
-        EditText ctAdd = findViewById(R.id.ctAddress);
-        EditText ctStuId = findViewById(R.id.ctStudentId);
-        EditText ctDepart = findViewById(R.id.ctDepartment);
-        EditText ctBir = findViewById(R.id.ctBirthDate);
+        EditText Email = findViewById(R.id.Email);
+        EditText Id = findViewById(R.id.Id);
+        EditText Password = findViewById(R.id.Password);
+        EditText Password2 = findViewById(R.id.Password2);
+        EditText Name = findViewById(R.id.Name);
+        EditText Phone = findViewById(R.id.Phone);
+        EditText Add = findViewById(R.id.Address);
+        EditText StuId = findViewById(R.id.StudentId);
+        EditText Depart = findViewById(R.id.Department);
+        EditText Bir = findViewById(R.id.BirthDate);
 
 
         Button btnSuccess = findViewById(R.id.btnSuccess);
@@ -80,17 +80,17 @@ public class Register_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     // 입력값 가져오기
-                    String username = ctId.getText().toString().trim();
-                    String password = ctPassword.getText().toString();
-                    String password2 = ctPassword2.getText().toString();
-                    String name = ctName.getText().toString().trim();
-                    String phone = ctPhone.getText().toString().trim();
-                    String address = ctAdd.getText().toString().trim();
+                    String username = Id.getText().toString().trim();
+                    String password = Password.getText().toString();
+                    String password2 = Password2.getText().toString();
+                    String name = Name.getText().toString().trim();
+                    String phone = Phone.getText().toString().trim();
+                    String address = Add.getText().toString().trim();
                     String gender = spinnerGender.getSelectedItem().toString();
-                    String studentIdStr = ctStuId.getText().toString().trim();
-                    String departmentStr = ctDepart.getText().toString().trim();
-                    String birthDate = ctBir.getText().toString().trim();
-                    String email = ctEmail.getText().toString().trim();
+                    String studentIdStr = StuId.getText().toString().trim();
+                    String departmentStr = Depart.getText().toString().trim();
+                    String birthDate = Bir.getText().toString().trim();
+                    String email = Email.getText().toString().trim();
 
                     if (!isValidEmail(email)) {
                         Toast.makeText(Register_Activity.this,

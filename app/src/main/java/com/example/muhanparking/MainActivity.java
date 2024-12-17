@@ -30,12 +30,14 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     private Handler updateHandler;
     private static final int UPDATE_INTERVAL = 60000; // 1분
-    private TextView normalSpaceText;
+    private TextView disabledSpaceText;  // 장애인 주차공간 TextView 추가
+
 
     private int occupiedA1 = 0, totalA1 = 32;
     private int occupiedA2 = 0, totalA2 = 9;
     private int occupiedB = 0, totalB = 27;
     private int occupiedC = 0, totalC = 11;
+    private int occupiedD = 0, totalD = 4;  // B구역 장애인 구역
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         textMyInfo.setTypeface(pretendardBold);
 
         // 주차공간 TextView 초기화
-        normalSpaceText = findViewById(R.id.normal_space_text);
+        disabledSpaceText = findViewById(R.id.normal_space_text);
 
         // 주기적 업데이트 시작
         startPeriodicUpdates();
@@ -216,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
 
         // UI 업데이트 - 주차된 차량 수 표시
         runOnUiThread(() -> {
-            normalSpaceText.setText(String.format("%d / %d", totalOccupied, totalSpots));
+            disabledSpaceText.setText(String.format("%d / %d", totalOccupied, totalSpots));
         });
     }
 
